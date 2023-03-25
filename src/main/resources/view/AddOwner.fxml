@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="198.0" layoutY="33.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="NEW ADMIN">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Admin Name">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAdminName" />
+               </children>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="46.0" spacing="10.0">
+               <children>
+                  <Label text="Admin Username">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAdminUsername" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="86.0" spacing="10.0">
+               <children>
+                  <Label text="Admin Password">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="txtAdminPassword" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="210.0" layoutY="116.0" spacing="10.0">
+               <children>
+                  <Label text="Re-Password">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="txtRePassword" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="200.0" right="200.0" top="50.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
