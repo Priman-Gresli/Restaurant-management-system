@@ -1,14 +1,916 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.dep10.app.controller.OwnerSceneController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" prefHeight="400.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="952.0" minWidth="10.0" prefWidth="297.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1623.0" minWidth="10.0" prefWidth="1623.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane>
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="91.0" prefHeight="899.0" prefWidth="175.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ToggleButton fx:id="btnCashierMode" mnemonicParsing="false" onAction="#btnCashierModeOnAction" prefHeight="91.0" prefWidth="226.0" selected="true" text="CASHIER MODE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnAddNewItem" layoutX="46.0" layoutY="110.0" mnemonicParsing="false" onAction="#btnAddNewItemOnAction" prefHeight="91.0" prefWidth="226.0" text="+ NEW ITEM">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnAddNewItem" layoutX="46.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnAddNewItemOnAction" prefHeight="91.0" prefWidth="226.0" text="+ NEW CASHIER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnBusinssSummary" layoutX="46.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnBusinssSummaryOnAction" prefHeight="91.0" prefWidth="226.0" text="BUSSINESS SUMMARY" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </ToggleButton>
+               </children>
+               <padding>
+                  <Insets top="100.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxWidth="1620.0" minWidth="1620.0" prefHeight="950.0" prefWidth="1343.0" GridPane.columnIndex="1">
+         <children>
+            <AnchorPane layoutY="-56.0" prefHeight="950.0" prefWidth="1623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <GridPane prefHeight="950.0" prefWidth="1623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="467.0" minHeight="10.0" prefHeight="401.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="467.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="742.9999847412109" minHeight="10.0" prefHeight="620.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="408.0" prefWidth="1623.0" spacing="20.0" style="-fx-border-color: black; -fx-background-color: green;">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="217.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="imgRIce" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgRIceMouseReleased" onTouchReleased="#imgRIceTouchReleased" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/food/rice/blackstone-chicken-fried-rice-7-2-1.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label text="RICE">
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="689.0" layoutY="11.0" prefHeight="289.0" prefWidth="256.0">
+                                 <children>
+                                    <ImageView fx:id="imgKottu" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgKottuMouseReleased" onTouchReleased="#imgKottuTouchReleased" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/food/kottu/kottu+roti.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label text="KOTTU">
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="534.0" layoutY="11.0" prefHeight="289.0" prefWidth="256.0">
+                                 <children>
+                                    <ImageView fx:id="imgBakeryItem" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgBakeryItemMouseReleased" onTouchReleased="#imgBakeryItemTouchReleased" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/food/short%20eats/2f9bf4eb-bread-2_850x460_acf_cropped.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label text="BAKERY ITEMS">
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="965.0" layoutY="11.0" prefHeight="235.0" prefWidth="214.0">
+                                 <children>
+                                    <ImageView fx:id="imgDrinks" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgDrinksMouseReleased" onTouchReleased="#imgDrinksTouchReleased" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/food/drinks/coca-cola-fanta-sprite-glass-bottles-chisinau-moldova-november-white-background-three-drinks-most-popular-brands-65196394.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label text="DRINKS">
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="1156.0" layoutY="11.0" prefHeight="225.0" prefWidth="178.0">
+                                 <children>
+                                    <ImageView fx:id="imgDesserts" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgDessertsMouseReleased" onTouchReleased="#imgDessertsTouchReleased" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../images/food/dessert/dessert_97357067.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label text="DESSERT">
+                                       <font>
+                                          <Font name="System Bold" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <GridPane prefHeight="684.0" prefWidth="1622.0" GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="596.3333435058594" minHeight="10.0" prefHeight="515.0000305175781" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1056.0" minWidth="10.0" prefWidth="961.3333740234375" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="800.3333740234375" minWidth="10.0" prefWidth="661.6666259765625" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane alignment="CENTER" prefHeight="577.0" prefWidth="459.0" GridPane.columnIndex="1">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button fx:id="btn3" mnemonicParsing="false" onAction="#btn3OnAction" prefHeight="190.0" prefWidth="224.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn5" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn5OnAction" prefHeight="190.0" prefWidth="224.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn4" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn4OnAction" prefHeight="190.0" prefWidth="224.0" text="4" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn8" layoutX="234.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn8OnAction" prefHeight="190.0" prefWidth="224.0" text="8" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn9" layoutX="234.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn9OnAction" prefHeight="190.0" prefWidth="224.0" text="9" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn6" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn6OnAction" prefHeight="190.0" prefWidth="224.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnEnter" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnEnterOnAction" prefHeight="190.0" prefWidth="224.0" text="ENTER" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn1OnAction" prefHeight="190.0" prefWidth="224.0" text="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn2OnAction" prefHeight="190.0" prefWidth="224.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnRemove" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="190.0" prefWidth="224.0" text="REMOVE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn7" layoutX="234.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn7OnAction" prefHeight="190.0" prefWidth="224.0" text="7">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnBill" layoutX="458.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnBillOnAction" prefHeight="190.0" prefWidth="224.0" text="BILL" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn0" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" onAction="#btn0OnAction" prefHeight="190.0" prefWidth="224.0" text="0" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnDot" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnDotOnAction" prefHeight="190.0" prefWidth="224.0" text="." GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnPlus" layoutX="231.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnPlusOnAction" prefHeight="190.0" prefWidth="224.0" text="+" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnSkip" layoutX="10.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnSkipOnAction" prefHeight="190.0" prefWidth="224.0" text="SKIP" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnExit" layoutX="229.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="190.0" prefWidth="224.0" text="EXIT" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnOpenCashBox" layoutX="448.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnOpenCashBoxOnAction" prefHeight="190.0" prefWidth="224.0" text="OPEN CASH BOX" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" style="-fx-font-size: 19;" text="ITEM" />
+                                        <TableColumn prefWidth="75.0" style="-fx-font-size: 19;" text="QTY" />
+                                          <TableColumn prefWidth="271.0" style="-fx-font-size: 19;" text="PRICE" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="950.0" prefWidth="1661.0" style="-fx-background-color: orange;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" minHeight="110.0" spacing="20.0" style="-fx-background-color: light green;">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="97.0" prefWidth="165.0" text="SMALL" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="VEGETABLE RICE" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG RICE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="CHICKEN RICE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="MIX RICE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="SEA FOOD RICE" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="BIRIYANI" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="97.0" prefWidth="165.0" text="LARGE" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="VEGETABLE RICE" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG RICE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="CHICKEN RICE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="MIX RICE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="SEA FOOD RICE" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="BIRIYANI" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane disable="true" layoutX="-19.0" layoutY="10.0" prefHeight="950.0" prefWidth="1825.0" style="-fx-background-color: yellow;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="97.0" prefWidth="165.0" text="SMALL" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="VEGETABLE KOTTU" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG KOTTU">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="CHICKEN KOTTU">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="MIX KOTTU">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="BEEF KOTTU" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="STRING HOPPERS KOTTU" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="97.0" prefWidth="165.0" text="LARGE" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="VEGETABLE KOTTU" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG KOTTU">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="CHICKEN KOTTU">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="MIX KOTTU">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="BEEF KOTTU" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="STRING HOPPERS KOTTU" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button layoutX="1389.0" layoutY="39.0" mnemonicParsing="false" prefHeight="145.0" prefWidth="185.0" text="ADD CHEESE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="-26.0" layoutY="10.0" prefHeight="950.0" prefWidth="1835.0" style="-fx-background-color: green;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="BREAD" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG BUN">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="FISH BUN">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG ROTI">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="PAROTA" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="EGG ROLL" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="980.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="FISH ROLL" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1174.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="PASTRY" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" minHeight="110.0" prefWidth="1825.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="ROAST BREAD" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="50.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="SAUSAGE BUN" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="JAM BUN">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="VIYAN ROLL">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="DONUT">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1214.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="SPONGE" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="BUTTER CAKE" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="CHOCOLATE CAKE" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="7.0" layoutY="10.0" prefHeight="950.0" prefWidth="1620.0" style="-fx-background-color: blue;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="78.0" prefWidth="174.0" text="HOT DRINKS">
+                                             <font>
+                                                <Font size="21.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="COFFEE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="NESCAFE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="TEA">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="NESTEA" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="980.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1174.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="78.0" prefWidth="174.0" text="SOFT DRINKS">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="50.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="COKE" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="PEPSI">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="FANTA">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="ORANGE CRUSH">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1214.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="CREAME SODA" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="NECTO" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="Ginger BEER" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="120.0" minHeight="110.0" spacing="20.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="78.0" prefWidth="174.0" text="MILK PRODUCT">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="50.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="MILO" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="KOTHMALE PACKET" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="438.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="KOTHMALE BOTTLE" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="HIGHLAND PACKET" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="HIGHLAND MILK BOTTLE" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1214.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="PALAWATTE PACKET" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" wrapText="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="-647.0" layoutY="817.0" minHeight="110.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="-0.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="78.0" prefWidth="174.0" text="SIZE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="50.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="200 ml" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="541.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="400 ml">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="735.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="500 ml">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="832.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="1 L">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1214.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="1.5 L" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1026.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="2 L" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1123.0" layoutY="29.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="1080.0" prefWidth="1623.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutX="47.0" layoutY="37.0" prefHeight="950.0" prefWidth="1623.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox alignment="CENTER" layoutY="135.0" prefHeight="340.0" prefWidth="1518.0" spacing="20.0" AnchorPane.topAnchor="185.0">
+                     <children>
+                        <HBox prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="220.0" text="NAME:">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtName" prefHeight="51.0" prefWidth="1291.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="220.0" text="ID:">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtId" prefHeight="51.0" prefWidth="1291.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="220.0" text="ADDRESS:">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtAddress" prefHeight="51.0" prefWidth="1291.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="220.0" text="CONTACT:">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtContact" prefHeight="51.0" prefWidth="1291.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="56.0" prefWidth="1374.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="215.0" text="GENDER:">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton fx:id="rbtMale" mnemonicParsing="false" onAction="#rbtMaleOnAction" prefHeight="61.0" prefWidth="149.0" text="MALE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="Gender" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rbtFemale" mnemonicParsing="false" onAction="#rbtFemaleOnAction" prefHeight="61.0" prefWidth="138.0" text="FEMALE" toggleGroup="$Gender">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="tblCashier" layoutX="84.0" layoutY="559.0" prefHeight="356.0" prefWidth="1459.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+                    <columns>
+                      <TableColumn prefWidth="200.66665649414062" style="-fx-font-size: 18;" text="NAME" />
+                      <TableColumn minWidth="0.0" prefWidth="284.3333435058594" style="-fx-font-size: 18;" text="ID" />
+                        <TableColumn minWidth="0.0" prefWidth="284.3333435058594" style="-fx-font-size: 18;" text="ADDRESS" />
+                        <TableColumn minWidth="0.0" prefWidth="284.3333435058594" style="-fx-font-size: 18;" text="CONTACT " />
+                        <TableColumn minWidth="0.0" prefWidth="284.3333435058594" style="-fx-font-size: 18;" text="GENDER" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Button fx:id="btnNewCashier" mnemonicParsing="false" onAction="#btnNewCashierOnAction" prefHeight="68.0" prefWidth="203.0" text="+ NEW CASHIER" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="1080.0" prefWidth="1623.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <GridPane alignment="CENTER" prefHeight="950.0" prefWidth="1623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="643.0" prefWidth="811.0" GridPane.columnIndex="1">
+                           <children>
+                              <ComboBox layoutX="160.0" layoutY="37.0" prefHeight="38.0" prefWidth="508.0" />
+                           </children>
+                        </AnchorPane>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <PieChart GridPane.rowIndex="1" />
+                              <BarChart>
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" right="10.0" top="10.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+</GridPane>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="625.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
+<AnchorPane maxHeight="800.0" maxWidth="700.0" minHeight="800.0" minWidth="900.0" prefHeight="800.0" prefWidth="700.0" stylesheets="@../css/AddOwnerstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="198.0" layoutY="33.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="-153.0" layoutY="-92.0" prefHeight="841.0" prefWidth="1262.0" spacing="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="NEW ADMIN">
                <font>
@@ -23,7 +24,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAdminName" />
+                  <TextField fx:id="txtAdminName" prefHeight="30.0" prefWidth="524.0" />
                </children>
                <padding>
                   <Insets top="50.0" />
@@ -36,7 +37,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAdminUsername" />
+                  <TextField fx:id="txtAdminUsername" prefHeight="30.0" />
                </children>
                <padding>
                   <Insets top="20.0" />
@@ -52,7 +53,7 @@
                         <Insets top="20.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="txtAdminPassword" />
+                  <TextField fx:id="txtAdminPassword" prefHeight="30.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="210.0" layoutY="116.0" spacing="10.0">
@@ -65,12 +66,17 @@
                         <Insets top="20.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="txtRePassword" />
+                  <TextField fx:id="txtRePassword" prefHeight="30.0" />
                </children>
             </VBox>
+            <Button fx:id="btnConfirm" defaultButton="true" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="56.0" prefWidth="194.0" text="Confirm">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Button>
          </children>
          <padding>
-            <Insets left="200.0" right="200.0" top="50.0" />
+            <Insets bottom="20.0" left="200.0" right="200.0" top="50.0" />
          </padding>
       </VBox>
    </children>
