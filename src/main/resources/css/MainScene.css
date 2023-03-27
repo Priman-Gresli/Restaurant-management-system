@@ -1,0 +1,88 @@
+#root{
+    /*-fx-font-family: Ubuntu;*/
+    -fx-background-image: url("/images/background/MainLogin/8.jpg") ;
+    /*!*-fx-background-repeat: no-repeat;*!*/
+    -fx-background-size: 800 500;
+    -fx-background-position: center center;
+    /*-fx-opacity: 0.7;*/
+}
+
+
+
+
+.invalid {      /* <- CSS Class */
+
+    /*-fx-border-color: red;*/
+    /*-fx-border-radius: 5px;*/
+    -fx-text-box-border: red ;
+    /*-fx-focus-color: red ;*/
+    -fx-border-width: 5;
+}
+
+/*.text-field:focused {*/
+/*    -fx-border-color: #0080ff;*/
+/*}*/
+#btnLogin {
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+            linear-gradient(#20262b, #191d22),
+            radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#btnLogin:hover,#tglCashier:hover,#tglShopOwner:hover {
+    -fx-background-color:
+            rgb(29, 32, 37),
+            linear-gradient(#566069 0%, #33383d 20%, #191d22 100%),
+            linear-gradient(#3e4449, #373b40),
+            radial-gradient(center 50% 0%, radius 100%, rgba(144, 164, 178, 0.9), rgba(255,255,255,0));
+ }
+
+
+#click {
+    -fx-background-color:  #040f15,
+    linear-gradient(#242e37 0%, #131b23 20%, #141e23 100%),
+    linear-gradient(#1d2831, #0f161f),
+    radial-gradient(center 50% 0%, radius 100%, rgba(59, 70, 80, 0.9), rgba(255,255,255,0));
+    -fx-text-fill: red;
+ }
+
+
+#btnLogin Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+#tglCashier,#tglShopOwner Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+#tglCashier,#tglShopOwner{
+    -fx-background-color: #090a0c,
+    linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+    linear-gradient(#20262b, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#lblPassword,#lblUsername{
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}

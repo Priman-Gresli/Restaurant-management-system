@@ -24,7 +24,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" prefHeight="400.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" prefHeight="400.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.OwnerSceneController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="952.0" minWidth="10.0" prefWidth="297.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1623.0" minWidth="10.0" prefWidth="1623.0" />
@@ -47,7 +47,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAddNewItem" layoutX="46.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnAddNewItemOnAction" prefHeight="91.0" prefWidth="226.0" text="+ NEW CASHIER">
+                  <ToggleButton fx:id="btnAddNewCashier" layoutX="46.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnAddNewCashierOnAction" prefHeight="91.0" prefWidth="226.0" text="+ NEW CASHIER">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -84,7 +84,7 @@
                                  <children>
                                     <ImageView fx:id="imgRIce" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgRIceMouseReleased" onTouchReleased="#imgRIceTouchReleased" pickOnBounds="true">
                                        <image>
-                                          <Image url="@../images/food/rice/blackstone-chicken-fried-rice-7-2-1.jpg" />
+                                          <Image url="@../images/food/rice/rice.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label text="RICE">
@@ -112,7 +112,7 @@
                                  <children>
                                     <ImageView fx:id="imgBakeryItem" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgBakeryItemMouseReleased" onTouchReleased="#imgBakeryItemTouchReleased" pickOnBounds="true">
                                        <image>
-                                          <Image url="@../images/food/short%20eats/2f9bf4eb-bread-2_850x460_acf_cropped.jpg" />
+                                          <Image url="@../images/food/short-eats/Bread.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label text="BAKERY ITEMS">
@@ -126,7 +126,7 @@
                                  <children>
                                     <ImageView fx:id="imgDrinks" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgDrinksMouseReleased" onTouchReleased="#imgDrinksTouchReleased" pickOnBounds="true">
                                        <image>
-                                          <Image url="@../images/food/drinks/coca-cola-fanta-sprite-glass-bottles-chisinau-moldova-november-white-background-three-drinks-most-popular-brands-65196394.jpg" />
+                                          <Image url="@../images/food/drinks/cola1.jpeg" />
                                        </image>
                                     </ImageView>
                                     <Label text="DRINKS">
@@ -140,7 +140,7 @@
                                  <children>
                                     <ImageView fx:id="imgDesserts" fitHeight="200.0" fitWidth="260.0" onMouseReleased="#imgDessertsMouseReleased" onTouchReleased="#imgDessertsTouchReleased" pickOnBounds="true">
                                        <image>
-                                          <Image url="@../images/food/dessert/dessert_97357067.jpg" />
+                                          <Image url="@../images/food/dessert/2.jpg" />
                                        </image>
                                     </ImageView>
                                     <Label text="DESSERT">
@@ -571,7 +571,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="7.0" layoutY="10.0" prefHeight="950.0" prefWidth="1620.0" style="-fx-background-color: blue;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="7.0" layoutY="10.0" prefHeight="950.0" prefWidth="1620.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox>
                            <children>
@@ -584,7 +584,7 @@
                                                 <Font size="21.0" />
                                              </font>
                                           </Label>
-                                          <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="COFFEE">
+                                          <Button fx:id="btnCoffee" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="COFFEE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
