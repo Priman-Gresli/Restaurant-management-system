@@ -1,14 +1,29 @@
-#root{
-    /*-fx-font-family: Ubuntu;*/
-    -fx-background-image: url("/images/background/MainLogin/8.jpg") ;
-    /*!*-fx-background-repeat: no-repeat;*!*/
-    -fx-background-size: 800 500;
-    -fx-background-position: center center;
-    /*-fx-opacity: 0.7;*/
+/*#anchorImage{*/
+/*    !*-fx-font-family: Ubuntu;*!*/
+/*    -fx-background-image: url("/images/background/MainLogin/canvas.jpg") ;*/
+/*    !*!*-fx-background-repeat: no-repeat;*!*!*/
+/*    -fx-background-size: 430 600;*/
+/*    -fx-background-position: center center;*/
+/*    !*-fx-opacity: 0.7;*!*/
+/*}*/
+
+
+
+/*#anchorVbox {*/
+/*    -fx-background-color: radial-gradient(center 50% 50% , radius 300px , #262424, #494747);*/
+/*}*/
+
+#anchorVbox {
+    /*-fx-background-color: linear-gradient(to bottom, #111218, #282f37);*/
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #111218, #282f37);
+
+    /*-fx-background-image: url("/images/background/MainLogin/canvas.jpg");*/
+    background-size: 80% 100px;
+    -fx-background-radius: 60px;
+    -fx-border-color: white;
+    -fx-border-radius: 60px;
+    -fx-border-width: 1px;
 }
-
-
-
 
 .invalid {      /* <- CSS Class */
 
@@ -16,7 +31,9 @@
     /*-fx-border-radius: 5px;*/
     -fx-text-box-border: red ;
     /*-fx-focus-color: red ;*/
-    -fx-border-width: 5;
+    /*-fx-border-width: 5;*/
+    -fx-border-color: red;
+    -fx-border-width: 2;
 }
 
 /*.text-field:focused {*/
@@ -47,12 +64,19 @@
  }
 
 
-#click {
+#btnLogin {
     -fx-background-color:  #040f15,
     linear-gradient(#242e37 0%, #131b23 20%, #141e23 100%),
     linear-gradient(#1d2831, #0f161f),
     radial-gradient(center 50% 0%, radius 100%, rgba(59, 70, 80, 0.9), rgba(255,255,255,0));
-    -fx-text-fill: red;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+
  }
 
 
@@ -62,7 +86,7 @@
 #tglCashier,#tglShopOwner Text {
     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
 }
-#tglCashier,#tglShopOwner{
+.click{
     -fx-background-color: #090a0c,
     linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
     linear-gradient(#20262b, #191d22),
@@ -73,15 +97,15 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-font-family: "Arial";
     -fx-text-fill: linear-gradient(white, #d0d0d0);
-    -fx-font-size: 20px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-padding: 10 20 10 20;
 }
 #lblPassword,#lblUsername{
     -fx-text-fill: white;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-effect: dropshadow( three-pass-box , rgba(87, 82, 82, 0.6), 5, 0.0 , 0 , 1 );
     -fx-font-family: "Arial";
-    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-text-fill: linear-gradient(#ffffff, #b6b1b1);
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-padding: 10 20 10 20;
