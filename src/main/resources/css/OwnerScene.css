@@ -1,0 +1,225 @@
+
+#leftStage1Vbox {
+    /*-fx-background-color: linear-gradient(to bottom, #111218, #282f37);*/
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #111218, #282f37);
+
+    /*-fx-background-image: url("/images/background/MainLogin/canvas.jpg");*/
+    background-size: 80% 100px;
+    -fx-background-radius: 60px;
+    -fx-border-color: white;
+    -fx-border-radius: 60px;
+    -fx-border-width: 1px;
+}
+#btnAddNewCashier,#btnAddNewItem,#btnBusinessSummary,#btnCashierMode {
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+            linear-gradient(#20262b, #191d22),
+            radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#btnAddNewCashier:hover,#btnAddNewItem:hover,#btnBusinessSummary:hover,#btnCashierMode:hover {
+    -fx-background-color:
+            rgb(29, 32, 37),
+            linear-gradient(#566069 0%, #33383d 20%, #191d22 100%),
+            linear-gradient(#3e4449, #373b40),
+            radial-gradient(center 50% 0%, radius 100%, rgba(223, 232, 239, 0.9), rgba(255,255,255,0));
+    -fx-cursor: hand;
+
+}
+#btnCashierMode, #btnAddNewCashier,#btnAddNewItem,#btnBusinessSummary{
+    -fx-background-color:  #040f15,
+    linear-gradient(#242e37 0%, #131b23 20%, #141e23 100%),
+    linear-gradient(#1d2831, #0f161f),
+    radial-gradient(center 50% 0%, radius 100%, rgba(59, 70, 80, 0.9), rgba(255,255,255,0));
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+
+#btnCashierMode:selected, #btnAddNewCashier:selected,#btnAddNewItem:selected,#btnBusinessSummary:selected{
+    -fx-background-color: #090a0c,
+    linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+    linear-gradient(#20262b, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+.toggleSelected{
+    -fx-background-color: #090a0c,
+    linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+    linear-gradient(#20262b, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#imgRIce:hover,#imgBakeryItem:hover,#imgKottu:hover,#imgDesserts:hover,#imgDrinks:hover,#imgLogOut:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    /*-fx-transition: transform 0.8s;*/
+    -fx-cursor: hand;
+
+}
+#lblBakery,#lblDessert,#lblDrinks,#lblKottu,#lblRice,#lblName,#lblLogName,#lblId,#lblIdNo,#lblDate,#lblTime{
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+#lblLogOut{
+    -fx-text-fill: red;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(#c24242, #640000);
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+#btn1:hover,#btn2:hover,#btn3:hover,#btn4:hover,#btn5:hover,#btn6:hover,#btn7:hover,#btn8:hover,#btn9:hover,#btnDot:hover,#btnEnter:hover,#btnExit:hover,#btn0:hover,#btnSkip:hover,#btnPlus:hover,#btnRemove:hover,#btnOpenCashBox:hover,#btnBill:hover  {
+    -fx-background-color:
+            rgb(20, 29, 42),
+            linear-gradient(#60788c 0%, #232f3b 20%, #131c26 100%),
+            linear-gradient(#607588, #2c3541),
+            radial-gradient(center 50% 0%, radius 100%, rgba(143, 175, 197, 0.9), rgba(255,255,255,0));
+    -fx-cursor: hand;
+
+}
+#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9,#btnDot,#btnEnter,#btnExit,#btn0,#btnSkip,#btnPlus,#btnRemove,#btnOpenCashBox,#btnBill {
+    -fx-background-color:  #0a222f,
+    linear-gradient(#627588 0%, #253444 20%, #283c46 100%),
+    linear-gradient(#344859, #1b2a3d),
+    radial-gradient(center 50% 0%, radius 100%, rgba(90, 112, 129, 0.9), rgba(255,255,255,0));
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9,#btnDot,#btn0,#btnPlus{
+    -fx-font-size: 25px;
+}
+
+
+
+.table-view {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, rgba(5, 34, 73, 0.27), rgba(107, 177, 232, 0.27));
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-background-color: rgba(146, 163, 183, 0.07);
+    -fx-text-background-color: #47b48d;
+}
+.table-row-cell:selected {
+    -fx-background-color: rgba(146, 163, 183, 0.07);
+    -fx-text-background-color: #043659;
+    -fx-font-weight: bold;
+}
+.table-row-cell:odd{
+    -fx-background-color: rgba(88, 131, 175, 0.07);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: rgba(51, 56, 128, 0.07);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+}
+/*.table-row-cell:highlighted {*/
+/*    -fx-background-color: #81c483;*/
+/*    -fx-background-radius: 15px;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+/*#lblPassword,#lblUsername{*/
+/*    -fx-text-fill: white;*/
+/*    -fx-effect: dropshadow( three-pass-box , rgba(87, 82, 82, 0.6), 5, 0.0 , 0 , 1 );*/
+/*    -fx-font-family: "Arial";*/
+/*    -fx-text-fill: linear-gradient(#ffffff, #b6b1b1);*/
+/*    -fx-font-size: 20px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-padding: 10 20 10 20;*/
+/*}*/
+/*.invalid {      !* <- CSS Class *!*/
+
+/*    !*-fx-border-color: red;*!*/
+/*    !*-fx-border-radius: 5px;*!*/
+/*    -fx-text-box-border: red ;*/
+/*    !*-fx-focus-color: red ;*!*/
+/*    !*-fx-border-width: 5;*!*/
+/*    -fx-border-color: red;*/
+/*    -fx-border-width: 2;*/
+/*}*/

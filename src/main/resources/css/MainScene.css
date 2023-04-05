@@ -16,7 +16,6 @@
 #anchorVbox {
     /*-fx-background-color: linear-gradient(to bottom, #111218, #282f37);*/
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #111218, #282f37);
-
     /*-fx-background-image: url("/images/background/MainLogin/canvas.jpg");*/
     background-size: 80% 100px;
     -fx-background-radius: 60px;

@@ -43,7 +43,9 @@ public class AppInitializer extends Application {
             resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT * FROM Staff WHERE status ='OWNER'");
             if (resultSet.next()) {
                 System.out.println(resultSet.next());
-                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/MainLogging.fxml")).load()));
+//                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/MainLogging.fxml")).load()));
+//                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/OwnerScene.fxml")).load()));
+                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddCashier.fxml")).load()));
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Main Logging");
                 primaryStage.setResizable(false);

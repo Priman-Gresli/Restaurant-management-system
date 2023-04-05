@@ -1,6 +1,5 @@
 package lk.ijse.dep10.app.controller;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,14 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaView;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import lk.ijse.dep10.app.db.DBConnection;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -28,9 +24,11 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public class MainLoggingController implements Initializable {
+public class MainLoggingController extends LoggedUserDetails implements Initializable {
 
     public Button btnLogin;
+    public Label lblLoginInvalid;
+    public MediaView midPlayer;
 
 
     @FXML
@@ -55,9 +53,6 @@ public class MainLoggingController implements Initializable {
     private String status;
 
     @FXML
-    private MediaView mediaView;
-
-    @FXML
     private AnchorPane root;
     private MediaPlayer mediaPlayer;
 
@@ -73,23 +68,34 @@ public class MainLoggingController implements Initializable {
 ////                flag=false;
 //            }
 //        });
+
+//        btnLogin.setOnKeyReleased(event -> {
+//            if (event.getCode() == KeyCode.ENTER) {
+//               btnLogin.fire();
+//                System.out.println("Enter key pressed!");
+//            }
+//        });
+            // video eka
 //        File file = new File("data/video.mp4");
 //        Media media = new Media(file.toURI().toString());
 //        mediaPlayer = new MediaPlayer(media);
 //        System.out.println(mediaPlayer==null);
-//        mediaView.setMediaPlayer(mediaPlayer);
+//        midPlayer.setMediaPlayer(mediaPlayer);
 //        Platform.runLater(()->{
-//           mediaPlayer.play();
+//            try {
+//                Thread.sleep(5000);
+//                mediaPlayer.play();
+//                mediaPlayer.setOnEndOfMedia(() -> {
+//                    System.out.println("Media playback has finished");
+//                    midPlayer.setVisible(false);
+//                });
+//
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//
 //        });
     }
-
-//    private void videoPlay() {
-//        File file = new File("data/video.mp4");
-//        Media media = new Media(file.toURI().toString());
-//        mediaPlayer = new MediaPlayer(media);
-//        mediaView.setMediaPlayer(mediaPlayer);
-//
-//    }
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
@@ -97,6 +103,8 @@ public class MainLoggingController implements Initializable {
             if (checkLoginData()){
                 Stage stage = (Stage) txtPassword.getScene().getWindow();
                 txtPassword.getScene().getWindow().hide();
+                loggedName=name;
+                loggedId=id;
                 if (status.equals("OWNER")) {
                     stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/OwnerScene.fxml")).load()));
                     stage.setMaximized(true);
@@ -104,14 +112,15 @@ public class MainLoggingController implements Initializable {
                     stage.setTitle("OWNER MODE");
                     stage.show();
                     System.out.println("admin");
-                }else {
+                }else if (status.equals("CASHIER")){
                     stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/CashierScene.fxml")).load()));
                     stage.setMaximized(true);
                     stage.centerOnScreen();
                     stage.setTitle("CASHIER MODE");
                     stage.show();
                     System.out.println("cashier");
-                }
+                }else new Alert(Alert.AlertType.WARNING,"Invalid Login!").showAndWait();
+
             }
         }
     }
@@ -133,6 +142,9 @@ public class MainLoggingController implements Initializable {
                 return true;
             }else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Login!").showAndWait();
+                txtUsername.requestFocus();
+                txtUsername.getStyleClass().add("invalid");
+                txtPassword.getStyleClass().add("invalid");
                 return false;
             }
         } catch (SQLException e) {
