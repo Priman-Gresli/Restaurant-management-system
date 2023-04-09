@@ -1,0 +1,164 @@
+
+#btnSave,#btnDelete,#btnNewCashier{
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+            linear-gradient(#20262b, #191d22),
+            radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#btnSave:hover,#btnDelete:hover,#btnNewCashier:hover {
+    -fx-background-color:
+            rgb(29, 32, 37),
+            linear-gradient(#566069 0%, #33383d 20%, #191d22 100%),
+            linear-gradient(#3e4449, #373b40),
+            radial-gradient(center 50% 0%, radius 100%, rgba(223, 232, 239, 0.9), rgba(255,255,255,0));
+    -fx-cursor: hand;
+
+}
+#btnSave,#btnDelete,#btnNewCashier{
+    -fx-background-color:  #040f15,
+    linear-gradient(#242e37 0%, #131b23 20%, #141e23 100%),
+    linear-gradient(#1d2831, #0f161f),
+    radial-gradient(center 50% 0%, radius 100%, rgba(59, 70, 80, 0.9), rgba(255,255,255,0));
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+
+/*.toggleSelected{*/
+/*    -fx-background-color: #090a0c,*/
+/*    linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),*/
+/*    linear-gradient(#20262b, #191d22),*/
+/*    radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));*/
+/*    -fx-background-radius: 5,4,3,5;*/
+/*    -fx-background-insets: 0,1,2,0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );*/
+/*    -fx-font-family: "Arial";*/
+/*    -fx-text-fill: linear-gradient(white, #d0d0d0);*/
+/*    -fx-font-size: 15px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-padding: 10 20 10 20;*/
+/*}*/
+#imgClose:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    /*-fx-transition: transform 0.8s;*/
+    -fx-cursor: hand;
+
+}
+#lblCategory,#lblId,#lblName#lblName,#lblPrize,#rbtLarge,#rbtSmall,#lblSize{
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+#tblItem {
+    -fx-background-color: transparent;
+}
+#tblItem .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+#tblItem .corner {
+    -fx-background-color: transparent;
+}
+#tblItem.column-header-background{
+    -fx-background-color: linear-gradient(to bottom, rgba(5, 34, 73, 0.27), rgba(107, 177, 232, 0.27));
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+#tblItem .column-header {
+    -fx-background-color: transparent;
+}
+#tblItem.table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+#tblItem-row-cell:hover {
+    -fx-background-color: rgba(146, 163, 183, 0.07);
+    -fx-text-background-color: #47b48d;
+}
+#tblItem-row-cell:selected {
+    -fx-background-color: rgba(146, 163, 183, 0.07);
+    -fx-text-background-color: #043659;
+    -fx-font-weight: bold;
+}
+#tblItem-row-cell:odd{
+    -fx-background-color: rgba(88, 131, 175, 0.07);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+#tblItem-row-cell:even{
+    -fx-background-color: rgba(51, 56, 128, 0.07);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+#tblItem.virtual-flow .scroll-bar:vertical,
+#tblItem .virtual-flow .scroll-bar:vertical .track,
+#tblItem .virtual-flow .scroll-bar:vertical .track-background,
+#tblItem .virtual-flow .scroll-bar:horizontal,
+#tblItem .virtual-flow .scroll-bar:horizontal .track,
+#tblItem.virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+#tblItem .virtual-flow .scroll-bar .increment-button,
+#tblItem .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+#tblItem .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+}
+#tblItem .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+}
+/*.table-row-cell:highlighted {*/
+/*    -fx-background-color: #81c483;*/
+/*    -fx-background-radius: 15px;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+/*#lblPassword,#lblUsername{*/
+/*    -fx-text-fill: white;*/
+/*    -fx-effect: dropshadow( three-pass-box , rgba(87, 82, 82, 0.6), 5, 0.0 , 0 , 1 );*/
+/*    -fx-font-family: "Arial";*/
+/*    -fx-text-fill: linear-gradient(#ffffff, #b6b1b1);*/
+/*    -fx-font-size: 20px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-padding: 10 20 10 20;*/
+/*}*/
+/*.invalid {      !* <- CSS Class *!*/
+
+/*    !*-fx-border-color: red;*!*/
+/*    !*-fx-border-radius: 5px;*!*/
+/*    -fx-text-box-border: red ;*/
+/*    !*-fx-focus-color: red ;*!*/
+/*    !*-fx-border-width: 5;*!*/
+/*    -fx-border-color: red;*/
+/*    -fx-border-width: 2;*/
+/*}*/

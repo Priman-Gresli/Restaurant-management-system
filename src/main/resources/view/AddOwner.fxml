@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="800.0" maxWidth="700.0" minHeight="800.0" minWidth="900.0" prefHeight="800.0" prefWidth="700.0" stylesheets="@../css/AddOwnerstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
+<AnchorPane maxHeight="800.0" maxWidth="700.0" minHeight="800.0" minWidth="900.0" prefHeight="800.0" prefWidth="700.0" style="-fx-background-position: center center; -fx-background-image: url(./images/background/MainLogin/canvas.jpg); -fx-background-size: cover;" stylesheets="@../css/AddOwnerstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="509.0" prefWidth="900.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

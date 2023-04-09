@@ -2,81 +2,116 @@ package lk.ijse.dep10.app.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+import lk.ijse.dep10.app.db.DBConnection;
+import lk.ijse.dep10.app.model.Item;
+import lk.ijse.dep10.app.util.Size;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-
-public class CategoryRiceController {
+import javafx.scene.control.ToggleGroup;
+public class CategoryRiceController extends OwnerSceneController{
+    @FXML
+    private FlowPane FlowPlane1;
 
     @FXML
-    private ToggleButton btnAddNewCashier;
+    private ToggleGroup Size;
 
     @FXML
-    private ToggleButton btnAddNewItem;
+    private ToggleButton tglLarge;
 
     @FXML
-    private ToggleButton btnBusinessSummary;
+    private ToggleButton tglSmall;
 
+
+
+    List<Item> itemsArrayList = new ArrayList<>();
+    public void initialize(){
+        itemName=null;
+        itemCategory=null;
+        itemPrize=0;
+
+        tglLarge.setDisable(true);
+        tglSmall.setDisable(true);
+       loadData();
+    }
+    private void loadData() {
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Item WHERE category='RICE'");
+            while (resultSet.next()) {
+
+                String id = resultSet.getString("item_id");
+                String name = resultSet.getString("name");
+                String category = resultSet.getString("category");
+                itemCategory=category;
+                int prize = Integer.parseInt(resultSet.getString("prize"));
+                Size size = lk.ijse.dep10.app.util.Size.valueOf(resultSet.getString("size"));
+
+                Item foodItem = new Item(id, category, name, size, prize);
+                itemsArrayList.add(foodItem);
+
+                if (foodItem.getSize().equals(lk.ijse.dep10.app.util.Size.SMALL)) {
+
+                  Button button = new Button(name);
+                    button.setMinSize(170,70);
+                    button.setOnAction((ActionEvent event)-> {
+                        tglLarge.setDisable(false);
+                        tglSmall.setDisable(false);
+                        itemName=name;
+                    });
+                    FlowPlane1.getChildren().add(button);
+                }
+            }
+            resultSet.close();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Database connection lost").showAndWait();
+            e.printStackTrace();
+        }
+
+    }
     @FXML
-    private ToggleButton btnCashierMode;
-
-    @FXML
-    private ImageView imgLogOut;
-
-    @FXML
-    private Label lblDate;
-
-    @FXML
-    private Label lblId;
-
-    @FXML
-    private Label lblIdNo;
-
-    @FXML
-    private Label lblLogName;
-
-    @FXML
-    private Label lblLogOut;
-
-    @FXML
-    private Label lblName;
-
-    @FXML
-    private Label lblTime;
-
-    @FXML
-    private GridPane leftAnchor;
-
-    @FXML
-    private AnchorPane leftAnchorStage1;
-
-    @FXML
-    private VBox leftStage1Vbox;
-
-    @FXML
-    private AnchorPane rootRice;
-
-    @FXML
-    void btnAddNewCashierOnAction(ActionEvent event) {
-
+    void tglLargeOnAction(ActionEvent event) {
+        size= lk.ijse.dep10.app.util.Size.LARGE;
+        List<Item> filteredItems = itemsArrayList.stream()
+                .filter(itemsArrayList -> itemsArrayList.getSize()== lk.ijse.dep10.app.util.Size.LARGE).filter(itemsArrayList -> itemsArrayList.getItemName().equals(itemName))
+                .collect(Collectors.toList());
+        Item item = filteredItems.get(0);
+        itemPrize = item.getPrize();
+        System.out.println(itemPrize);
+        Stage stage = (Stage) tglLarge.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    void btnAddNewItemOnAction(ActionEvent event) {
+    void tglSmallOnAction(ActionEvent event) {
+        size= lk.ijse.dep10.app.util.Size.SMALL;
+        List<Item> filteredItems = itemsArrayList.stream()
+                .filter(itemsArrayList -> itemsArrayList.getSize()== lk.ijse.dep10.app.util.Size.SMALL).filter(itemsArrayList -> itemsArrayList.getItemName().equals(itemName))
+                .collect(Collectors.toList());
+        Item item = filteredItems.get(0);
+        itemPrize  = item.getPrize();
+        System.out.println(itemPrize);
+        Stage stage = (Stage) tglSmall.getScene().getWindow();
+        stage.close();
 
     }
 
-    @FXML
-    void btnBusinessSummaryOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnCashierModeOnAction(ActionEvent event) {
-
-    }
 
 }

@@ -146,6 +146,12 @@ public class AddCashierController {
         tblMember.getSelectionModel().selectedItemProperty().addListener(((observableValue, previous, current) -> {
             btnDelete.setDisable(current == null);
             if (current == null) return;
+            txtId.setEditable(false);
+            rbtFemale.setDisable(true);
+            rbtMale.setDisable(true);
+            rbtCashier.setDisable(true);
+            rbtOwner.setDisable(true);
+
 //            tglDesignation.getSelectedToggle() == rbtOwner ? rbtOwner.setSelected(true) : rbtCashier.setSelected(true);
             Connection connection = DBConnection.getInstance().getConnection();
             // Retrieve the blob data from the database
@@ -308,7 +314,7 @@ public class AddCashierController {
         tglGender.selectToggle(null);
         tglDesignation.selectToggle(null);
         tblMember.getSelectionModel().clearSelection();
-        txtId.requestFocus();
+        txtName.requestFocus();
         Image image = new Image("images/background/AddNewMember/No-Image.jpg");
         imgProfilePic.setImage(image);
     }
@@ -455,7 +461,7 @@ public class AddCashierController {
         close();
     }
 
-    private void close() {
+    public void close() {
         Stage stage = (Stage) btnBrowse.getScene().getWindow();
         stage.setMaximized(false);
         stage.sizeToScene();
@@ -500,7 +506,7 @@ public class AddCashierController {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        Image image = new Image("/image/profile-user.png");
+        Image image = new Image("/images/background/AddNewMember/No-Image.jpg");
         imgProfilePic.setImage(image);
     }
 }
