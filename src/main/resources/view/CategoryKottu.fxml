@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.CategoryKottuController">
+<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" style="-fx-background-image: url(./images/background/MainLogin/canvas.jpg); -fx-background-position: center center;" stylesheets="@../css/category.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.CategoryKottuController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>

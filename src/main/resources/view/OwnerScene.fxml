@@ -273,7 +273,7 @@
                                           <Font size="30.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="btnEnter" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnEnterOnAction" prefHeight="190.0" prefWidth="224.0" text="ENTER" GridPane.rowIndex="5">
+                                    <Button fx:id="btnEnter" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnEnterOnAction" onKeyReleased="#btnEnterKeyRelease" prefHeight="190.0" prefWidth="224.0" text="ENTER" GridPane.rowIndex="5">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -347,10 +347,11 @@
                                     <TableView fx:id="tblBill" prefHeight="200.0" prefWidth="200.0">
                                       <columns>
                                         <TableColumn prefWidth="75.0" style="-fx-font-size: 19;" text="ITEM" />
-                                        <TableColumn prefWidth="75.0" style="-fx-font-size: 19; -fx-alignment: CENTER;" text="SIZE" />
+                                        <TableColumn prefWidth="75.0" style="-fx-font-size: 19; -fx-alignment: CENTER;" text="CATEGORY" />
+                                          <TableColumn prefWidth="271.0" style="-fx-font-size: 19; -fx-alignment: CENTER;" text="SIZE" />
                                           <TableColumn prefWidth="271.0" style="-fx-font-size: 19; -fx-alignment: CENTER;" text="QTY" />
                                           <TableColumn prefWidth="271.0" style="-fx-font-size: 19; -fx-alignment: CENTER;" text="UNIT PRIZE" />
-                                          <TableColumn prefWidth="271.0" style="-fx-font-size: 19; -fx-alignment: CENTER;" text="TOTAL PRIZE" />
+                                          <TableColumn prefWidth="75.0" style="-fx-font-size: 19;" text="TOTAL PRIZE" />
                                       </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -43,7 +43,7 @@ public class CategoryKottuController extends OwnerSceneController{
     public void initialize(){
         itemName=null;
         itemCategory=null;
-        itemPrize=0;
+        itemPrize=0.0;
 
         tglLarge.setDisable(true);
         tglSmall.setDisable(true);
@@ -61,7 +61,7 @@ public class CategoryKottuController extends OwnerSceneController{
                 String name = resultSet.getString("name");
                 String category = resultSet.getString("category");
                 itemCategory=category;
-                int prize = Integer.parseInt(resultSet.getString("prize"));
+                double prize = Double.parseDouble(resultSet.getString("prize"));
                 Size size = lk.ijse.dep10.app.util.Size.valueOf(resultSet.getString("size"));
 
                 Item foodItem = new Item(id, category, name, size, prize);

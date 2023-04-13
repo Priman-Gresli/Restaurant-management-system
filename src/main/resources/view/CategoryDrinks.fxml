@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.CategoryDrinkController">
+<GridPane maxHeight="950.0" maxWidth="1920.0" minHeight="950.0" minWidth="1920.0" style="-fx-background-image: url(./images/background/MainLogin/canvas.jpg); -fx-background-position: center center;" stylesheets="@../css/category.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.CategoryDrinkController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="827.0" minHeight="10.0" prefHeight="827.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="463.0" minHeight="10.0" prefHeight="123.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="943.0" minHeight="10.0" prefHeight="943.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="463.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <FlowPane fx:id="FlowPlane1" hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="40.0">
+        <FlowPane fx:id="FlowPlane1" hgap="20.0" prefHeight="906.0" prefWidth="1880.0" vgap="40.0">
             <GridPane.margin>
                 <Insets left="20.0" right="20.0" top="20.0" />
             </GridPane.margin></FlowPane>

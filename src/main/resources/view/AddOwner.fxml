@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -13,73 +14,73 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="800.0" maxWidth="700.0" minHeight="800.0" minWidth="900.0" prefHeight="800.0" prefWidth="700.0" style="-fx-background-position: center center; -fx-background-image: url(./images/background/MainLogin/canvas.jpg); -fx-background-size: cover;" stylesheets="@../css/AddOwnerstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
+<AnchorPane maxHeight="855.0" maxWidth="951.0" minHeight="800.0" minWidth="900.0" prefHeight="855.0" prefWidth="915.0" style="-fx-background-position: center center; -fx-background-image: url(./images/background/MainLogin/canvas.jpg); -fx-background-size: cover;" stylesheets="@../css/AddOwnerstyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.AddOwnerController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="509.0" prefWidth="900.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="NEW ADMIN">
+            <Label fx:id="lblNewAdmin" text="NEW ADMIN">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
             <HBox alignment="CENTER_LEFT">
                <children>
-                  <Label fx:id="lblName" maxWidth="240.0" minWidth="240.0" prefHeight="21.0" prefWidth="238.0" text="ADMIN NAME:">
+                  <Label fx:id="lblName" maxWidth="260.0" minWidth="260.0" prefHeight="21.0" prefWidth="238.0" text="ADMIN NAME:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAdminName" maxWidth="500.0" minWidth="500.0" prefHeight="30.0" prefWidth="524.0" />
+                  <TextField fx:id="txtAdminName" maxWidth="560.0" minWidth="560.0" prefHeight="30.0" prefWidth="524.0" promptText="Eg: Nimal Perera" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="116.0">
                <children>
-                  <Label fx:id="lblAddress" maxWidth="240.0" minWidth="240.0" prefHeight="21.0" prefWidth="238.0" text="ADMIN ADDRESS:">
+                  <Label fx:id="lblAddress" maxWidth="260.0" minWidth="260.0" prefHeight="21.0" prefWidth="238.0" text="ADMIN ADDRESS:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAddress" maxWidth="500.0" minWidth="500.0" prefHeight="30.0" prefWidth="524.0" />
+                  <TextField fx:id="txtAddress" maxWidth="560.0" minWidth="560.0" prefHeight="30.0" prefWidth="524.0" promptText="Eg: XXX , Dehiwala, Colombo" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="166.0">
                <children>
-                  <Label fx:id="lblContact" maxWidth="240.0" minWidth="240.0" prefHeight="21.0" prefWidth="238.0" text="ADMIN CONTACT:">
+                  <Label fx:id="lblContact" maxWidth="260.0" minWidth="260.0" prefHeight="21.0" prefWidth="238.0" text="ADMIN CONTACT:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtContact" maxWidth="500.0" minWidth="500.0" prefHeight="30.0" prefWidth="524.0" />
+                  <TextField fx:id="txtContact" maxWidth="560.0" minWidth="560.0" prefHeight="30.0" prefWidth="524.0" promptText="XXX-XXXXXXX" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT">
                <children>
-                  <Label fx:id="lblUsername" maxWidth="240.0" minWidth="240.0" prefHeight="21.0" text="ADMIN USERNAME:">
+                  <Label fx:id="lblUsername" maxWidth="260.0" minWidth="260.0" prefHeight="21.0" text="ADMIN USERNAME:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAdminUsername" maxWidth="500.0" minWidth="500.0" prefHeight="30.0" />
+                  <TextField fx:id="txtAdminUsername" maxWidth="560.0" minWidth="560.0" prefHeight="30.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT">
                <children>
-                  <Label fx:id="lblPassword" maxWidth="240.0" minWidth="240.0" prefHeight="21.0" text="ADMIN PASSWORD:">
+                  <Label fx:id="lblPassword" maxWidth="260.0" minWidth="260.0" prefHeight="21.0" text="ADMIN PASSWORD:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAdminPassword" maxWidth="500.0" minWidth="500.0" prefHeight="30.0" />
+                  <PasswordField fx:id="txtAdminPassword" maxWidth="560.0" minHeight="30.0" minWidth="560.0" prefHeight="30.0" prefWidth="559.0" promptText="At least should caontain one Character,Number,Uppercase and Min-length is 8 character" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT">
                <children>
-                  <Label fx:id="lblRePassword" maxWidth="240.0" minWidth="240.0" prefHeight="21.0" text="RE-ADMIN PASSWORD:">
+                  <Label fx:id="lblRePassword" maxWidth="260.0" minWidth="260.0" prefHeight="25.0" prefWidth="262.0" text="RE-ADMIN PASSWORD:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtRePassword" maxWidth="500.0" minWidth="500.0" prefHeight="30.0" />
+                  <PasswordField fx:id="txtRePassword" maxWidth="560.0" minHeight="30.0" minWidth="560.0" />
                </children>
             </HBox>
             <HBox prefHeight="56.0" prefWidth="1374.0">
@@ -115,17 +116,17 @@
             <Insets bottom="20.0" left="50.0" right="20.0" top="50.0" />
          </padding>
       </VBox>
-      <Button fx:id="btnConfirm" defaultButton="true" layoutX="380.0" layoutY="713.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="56.0" prefWidth="194.0" text="Confirm">
+      <Button fx:id="btnConfirm" defaultButton="true" layoutX="377.0" layoutY="777.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" onKeyReleased="#btnComfirmKeyRelease" prefHeight="56.0" prefWidth="194.0" text="Confirm">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <ImageView fx:id="imgProfilePic" fitHeight="220.0" fitWidth="195.0" layoutX="51.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgProfilePic" fitHeight="229.0" fitWidth="236.0" layoutX="237.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/background/AddNewMember/No-Image.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnBrowse" layoutX="292.0" layoutY="500.0" maxHeight="50.0" maxWidth="140.0" minHeight="50.0" minWidth="140.0" mnemonicParsing="false" onAction="#btnBrowseOnAction" prefHeight="34.0" prefWidth="144.0" text="BROWSE" />
-      <Button fx:id="btnClear" layoutX="292.0" layoutY="570.0" maxHeight="50.0" maxWidth="140.0" minHeight="50.0" minWidth="140.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="34.0" prefWidth="144.0" text="CLEAR" />
+      <Button fx:id="btnBrowse" layoutX="500.0" layoutY="478.0" maxHeight="50.0" maxWidth="140.0" minHeight="50.0" minWidth="140.0" mnemonicParsing="false" onAction="#btnBrowseOnAction" prefHeight="34.0" prefWidth="144.0" text="BROWSE" />
+      <Button fx:id="btnClear" layoutX="500.0" layoutY="548.0" maxHeight="50.0" maxWidth="140.0" minHeight="50.0" minWidth="140.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="34.0" prefWidth="144.0" text="CLEAR" />
    </children>
 </AnchorPane>

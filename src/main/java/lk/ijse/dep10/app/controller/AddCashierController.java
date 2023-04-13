@@ -134,6 +134,7 @@ public class AddCashierController {
 
     public void initialize() {
         btnNewCashier.fire();
+        txtId.setEditable(false);
         tblMember.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("image"));
         tblMember.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblMember.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -421,7 +422,7 @@ public class AddCashierController {
             txtAddress.selectAll();
             txtAddress.getStyleClass().add("invalid");
         }
-        if (!contact.matches("^0[1-9]{2}-[0-9]{7}")) {
+        if (!contact.matches("^0[0-9]{2}-[0-9]{7}")) {
             isDataValid = false;
             txtContact.requestFocus();
             txtContact.selectAll();
@@ -435,7 +436,7 @@ public class AddCashierController {
             txtUsername.getStyleClass().add("invalid");
         }
 
-        if (!password.matches("([A-Z]+)") && !password.matches("[0-9]+") && !password.matches("[@#!%&*]+") && password.length() < 6) {
+        if (!password.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$") ) {
             isDataValid = false;
             txtPassword.requestFocus();
             txtPassword.selectAll();

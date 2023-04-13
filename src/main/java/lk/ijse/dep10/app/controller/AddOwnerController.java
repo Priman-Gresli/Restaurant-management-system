@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -61,6 +63,7 @@ public class AddOwnerController {
 
 
     public void initialize() {
+
         txtAdminName.requestFocus();
     }
     @FXML
@@ -68,10 +71,12 @@ public class AddOwnerController {
         if (!isValid()) return;
         addOwnerDatabase();
         Stage stage = (Stage) btnConfirm.getScene().getWindow();
+        stage.setMaximized(true);
+        stage.sizeToScene();
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/OwnerScene.fxml")).load()));
         stage.setTitle("Shop Owner Mode");
-        stage.sizeToScene();
-        stage.setMaximized(true);
+//        stage.sizeToScene();
+//        stage.setMaximized(true);
         stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
@@ -103,24 +108,18 @@ public class AddOwnerController {
             rbtFemale.getStyleClass().add("invalid");
             rbtMale.getStyleClass().add("invalid");
         }
-
-        if (name.isEmpty() || !name.matches("[A-Za-z ]+")) {
+        if (!rePassword.equals(password)) {
+            System.out.println(rePassword);
             isDataValid = false;
-            txtAdminName.requestFocus();
-            txtAdminName.selectAll();
-            txtAdminName.getStyleClass().add("invalid");
+            txtRePassword.requestFocus();
+            txtRePassword.selectAll();
+            txtRePassword.getStyleClass().add("invalid");
         }
-        if (address.strip().length() < 3) {
+        if (!password.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$") ) {
             isDataValid = false;
-            txtAddress.requestFocus();
-            txtAddress.selectAll();
-            txtAddress.getStyleClass().add("invalid");
-        }
-        if (!contact.matches("^0[1-9]{2}-[0-9]{7}")) {
-            isDataValid = false;
-            txtContact.requestFocus();
-            txtContact.selectAll();
-            txtContact.getStyleClass().add("invalid");
+            txtAdminPassword.requestFocus();
+            txtAdminPassword.selectAll();
+            txtAdminPassword.getStyleClass().add("invalid");
         }
 
         if (username.isEmpty()) {
@@ -129,19 +128,23 @@ public class AddOwnerController {
             txtAdminUsername.selectAll();
             txtAdminUsername.getStyleClass().add("invalid");
         }
-
-        if (!password.matches("([A-Z]+)") && !password.matches("[0-9]+") && !password.matches("[@#!%&*]+") && password.length() < 6) {
+        if (!contact.matches("^0[1-9]{2}-[0-9]{7}")) {
             isDataValid = false;
-            txtAdminPassword.requestFocus();
-            txtAdminPassword.selectAll();
-            txtAdminPassword.getStyleClass().add("invalid");
+            txtContact.requestFocus();
+            txtContact.selectAll();
+            txtContact.getStyleClass().add("invalid");
         }
-        if (!rePassword.equals(password)) {
-            System.out.println(rePassword);
+        if (address.strip().length() < 3) {
             isDataValid = false;
-            txtRePassword.requestFocus();
-            txtRePassword.selectAll();
-            txtRePassword.getStyleClass().add("invalid");
+            txtAddress.requestFocus();
+            txtAddress.selectAll();
+            txtAddress.getStyleClass().add("invalid");
+        }
+        if (name.isEmpty() || !name.matches("[A-Za-z ]+")) {
+            isDataValid = false;
+            txtAdminName.requestFocus();
+            txtAdminName.selectAll();
+            txtAdminName.getStyleClass().add("invalid");
         }
         return isDataValid;
     }
@@ -199,4 +202,10 @@ public class AddOwnerController {
 
     public void btnClearOnAction(ActionEvent actionEvent) {
     }
+
+    public void btnComfirmKeyRelease(KeyEvent keyEvent) {
+
+        if (keyEvent.getCode() == KeyCode.ENTER) btnConfirm.fire();
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Bill implements Serializable {
 
     private ArrayList<OrderedBill> arrayList;
-    private int totalPrize;
+    private double totalPrize;
     private String date;
     private String time;
     private String cashierName;
@@ -26,7 +26,7 @@ public class Bill implements Serializable {
         this.arrayList = arrayList;
     }
 
-    public int getTotalPrize() {
+    public double getTotalPrize() {
         return totalPrize;
     }
 
@@ -66,12 +66,25 @@ public class Bill implements Serializable {
         this.cashierId = cashierId;
     }
 
-    public Bill(ArrayList<OrderedBill> arrayList, int totalPrize, String date, String time, String cashierName, String cashierId) {
+    public Bill(ArrayList<OrderedBill> arrayList, double totalPrize, String date, String time, String cashierName) {
+        this.arrayList = arrayList;
+        this.totalPrize = totalPrize;
+        this.date = date;
+        this.time = time;
+        this.cashierName = cashierName;
+    }
+
+    public Bill(ArrayList<OrderedBill> arrayList, double totalPrize, String date, String time, String cashierName, String cashierId) {
         this.arrayList = arrayList;
         this.totalPrize = totalPrize;
         this.date = date;
         this.time = time;
         this.cashierName = cashierName;
         this.cashierId = cashierId;
+    }
+
+    @Override
+    public String toString() {
+        return totalPrize+"";
     }
 }

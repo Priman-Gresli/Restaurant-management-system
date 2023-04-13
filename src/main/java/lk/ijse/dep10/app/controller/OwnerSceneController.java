@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
@@ -175,11 +177,11 @@ public class OwnerSceneController extends LoggedUserDetails{
     @FXML
     private AnchorPane rootRightStage2;
     public String quantity="";
-    public static int itemPrize;
+    public static double itemPrize;
     public static String itemName;
     public static String itemCategory;
     public static Size size;
-    private int total;
+    private double total;
     String date;
     String time;
     int qty;
@@ -190,23 +192,28 @@ public class OwnerSceneController extends LoggedUserDetails{
 
     public void initialize() {
 
+        if (loggedId.substring(0,1).equals("C")){
+            btnBusinessSummary.setDisable(true);
+            btnAddNewCashier.setDisable(true);
+        }
+
         tblBill.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("itemName"));
-        tblBill.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("size"));
-        tblBill.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        tblBill.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("unitPrize"));
-        tblBill.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("prize"));
+        tblBill.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("itemCategory"));
+        tblBill.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("size"));
+        tblBill.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        tblBill.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("unitPrize"));
+        tblBill.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("prize"));
 
 
         KeyFrame key =new KeyFrame(Duration.seconds(1), event ->{
              date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-             time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss"));
+             time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
             lblDate.setText(date);
             lblTime.setText(time);
         });
 
         tblBill.getSelectionModel().selectedItemProperty().addListener((observableValue, previous, current) -> {
             btnRemove.setDisable(current == null);
-            if (current == null) return;
         });
 
         Timeline timeline = new Timeline(key);
@@ -225,11 +232,9 @@ public class OwnerSceneController extends LoggedUserDetails{
     }
     @FXML
     void btnEnterOnAction(ActionEvent event) {
-        if (itemName==null || itemPrize==0 || quantity=="") return;
+        if (itemName==null || itemPrize==0.0 || quantity.equals("")|| quantity.equals("0")) return;
         ObservableList<OrderedBill> items = tblBill.getItems();
         qty = Integer.parseInt(quantity);
-        System.out.println(itemName+" 88");
-        System.out.println(itemPrize+" 88");
         total+=(itemPrize * qty);
         OrderedBill orderedBill = new OrderedBill(itemName, qty, itemCategory, itemPrize,size,qty*itemPrize);
 
@@ -250,7 +255,7 @@ public class OwnerSceneController extends LoggedUserDetails{
 
         itemName=null;
         itemCategory=null;
-        itemPrize=0;
+        itemPrize=0.0;
         quantity="";
 
     }
@@ -260,6 +265,7 @@ public class OwnerSceneController extends LoggedUserDetails{
             Bill billedItem = new Bill(itemArrayList2,total, date, time, loggedName, loggedId+"");
             Connection connection = DBConnection.getInstance().getConnection();
             Statement statement = connection.createStatement();
+            connection.setAutoCommit(false);
                 String sql = "INSERT INTO Bill(bill_date, bill_time, cashier, total_prize) VALUES ('%s','%s', '%s', '%s') ";
                 sql = String.format(sql, billedItem.getDate(), billedItem.getTime(), billedItem.getCashierName(), billedItem.getTotalPrize());
                 statement.executeUpdate(sql);
@@ -268,7 +274,7 @@ public class OwnerSceneController extends LoggedUserDetails{
                 Statement statement1 = connection.createStatement();
                 ResultSet resultSet = statement1.executeQuery(sql2);
                 resultSet.next();
-            System.out.println(resultSet);
+            System.out.println(resultSet.getInt(1));
                 int id = resultSet.getInt(1);
             System.out.println(id);
 
@@ -279,12 +285,15 @@ public class OwnerSceneController extends LoggedUserDetails{
                     statement2.setInt(3,bill.getQuantity());
                     statement2.setString(4,bill.getItemCategory());
                     statement2.setString(5,bill.getSize()+"");
-                    statement2.setInt(6,bill.getUnitPrize());
+                    statement2.setDouble(6,bill.getUnitPrize());
                     statement2.executeUpdate();
                 }
+                connection.commit();
+                connection.rollback();
                 tblBill.getSelectionModel().clearSelection();
                 tblBill.getItems().clear();
             itemArrayList=new ArrayList<>();
+            itemArrayList2=new ArrayList<>();
             total=0;
             lblTotalPrize.setText(total+"");
         } catch (Exception e) {
@@ -367,45 +376,67 @@ public class OwnerSceneController extends LoggedUserDetails{
 
     @FXML
     void btnRemoveOnAction(ActionEvent event) {
+        OrderedBill selectedItem = tblBill.getSelectionModel().getSelectedItem();
+        total-=selectedItem.getPrize();
         tblBill.getItems().remove(tblBill.getSelectionModel().getSelectedItem());
         itemArrayList.clear();
+        itemArrayList2.clear();
         ObservableList<OrderedBill> items = tblBill.getItems();
         for (OrderedBill orderedBill : items) {
             itemArrayList.add(orderedBill);
+            itemArrayList2.add(orderedBill);
         }
         tblBill.getSelectionModel().clearSelection();
+        lblTotalPrize.setText(total+"");
     }
 
     @FXML
     void btnSkipOnAction(ActionEvent event) {
         tblBill.getItems().clear();
         itemArrayList.clear();
+        itemArrayList2.clear();
     }
 
     @FXML
     void btnBusinessSummaryOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnAddNewCashier.getScene().getWindow();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+//         stage = (Stage) btnAddNewCashier.getScene().getWindow();
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/ShopDataScene.fxml")).load()));
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
+        btnBusinessSummary.setSelected(false);
+        btnCashierMode.setSelected(true);
 
     }
     @FXML
     void btnAddNewCashierOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnAddNewCashier.getScene().getWindow();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddCashier.fxml")).load()));
 //        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
-        System.out.println("1");
+        btnAddNewCashier.setSelected(false);
+        btnCashierMode.setSelected(true);
     }
 
     @FXML
     void btnAddNewItemOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnAddNewCashier.getScene().getWindow();
+
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddNewItem.fxml")).load()));
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
+        btnAddNewItem.setSelected(false);
+        btnCashierMode.setSelected(true);
     }
 
     @FXML
@@ -475,13 +506,14 @@ public class OwnerSceneController extends LoggedUserDetails{
         quantity="";
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-//        Stage stage = (Stage) btnAddNewCashier.getScene().getWindow();
         try {
             stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/CategoryRice.fxml")).load()));
         } catch (IOException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Loading Error").showAndWait();
         }
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
     }
@@ -496,6 +528,8 @@ public class OwnerSceneController extends LoggedUserDetails{
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Loading Error").showAndWait();
         }
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
     }
@@ -512,6 +546,8 @@ public class OwnerSceneController extends LoggedUserDetails{
             new Alert(Alert.AlertType.ERROR,"Loading Error").showAndWait();
         }
         stage.show();
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.centerOnScreen();
     }
 
@@ -526,6 +562,8 @@ public class OwnerSceneController extends LoggedUserDetails{
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Loading Error").showAndWait();
         }
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
     }
@@ -540,13 +578,16 @@ public class OwnerSceneController extends LoggedUserDetails{
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Loading Error").showAndWait();
         }
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
         stage.centerOnScreen();
     }
     private void logout()  {
-
-        Stage stage = (Stage) btnAddNewCashier.getScene().getWindow();
-        stage.setMaximized(false);
+        Stage stage1 =(Stage) btnAddNewCashier.getScene().getWindow();
+        stage1.close();
+        Stage stage = new Stage();
+//        stage.setMaximized(false);
         stage.sizeToScene();
         try {
             stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/MainLogging.fxml")).load()));
@@ -560,5 +601,9 @@ public class OwnerSceneController extends LoggedUserDetails{
         }
         stage.show();
         stage.centerOnScreen();
+    }
+
+    public void btnEnterKeyRelease(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) btnEnter.fire();
     }
 }

@@ -8,11 +8,11 @@ public class OrderedBill implements Serializable {
     private String itemName;
     private int quantity;
     private String itemCategory;
-    private int unitPrize;
+    private double unitPrize;
     private Size size;
-    private int prize;
+    private double prize;
 
-    public OrderedBill(String itemName, int quantity, String itemCategory, int unitPrize, Size size, int prize) {
+    public OrderedBill(String itemName, int quantity, String itemCategory, double unitPrize, Size size, double prize) {
         this.itemName = itemName;
         this.quantity = quantity;
         this.itemCategory = itemCategory;
@@ -21,11 +21,11 @@ public class OrderedBill implements Serializable {
         this.prize = prize;
     }
 
-    public int getPrize() {
+    public double getPrize() {
         return prize;
     }
 
-    public void setPrize(int prize) {
+    public void setPrize(double prize) {
         this.prize = prize;
     }
 
@@ -53,11 +53,11 @@ public class OrderedBill implements Serializable {
         this.itemCategory = itemCategory;
     }
 
-    public int getUnitPrize() {
+    public double getUnitPrize() {
         return unitPrize;
     }
 
-    public void setUnitPrize(int unitPrize) {
+    public void setUnitPrize(double unitPrize) {
         this.unitPrize = unitPrize;
     }
 
@@ -72,15 +72,4 @@ public class OrderedBill implements Serializable {
     public OrderedBill() {
     }
 
-    @Override
-    public String toString() {
-        return "OrderedBill{" +
-                "itemName='" + itemName + '\'' +
-                ", quantity=" + quantity +
-                ", itemCategory='" + itemCategory + '\'' +
-                ", unitPrize=" + unitPrize +
-                ", size=" + size +
-                ", prize=" + prize +
-                '}';
-    }
 }

@@ -31,7 +31,7 @@ public class CategoryBakeryController extends OwnerSceneController{
     public void initialize(){
         itemName=null;
         itemCategory=null;
-        itemPrize=0;
+        itemPrize=0.0;
 
         loadData();
     }
@@ -40,14 +40,14 @@ public class CategoryBakeryController extends OwnerSceneController{
 
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM Item WHERE category='DRINKS'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Item WHERE category='BAKERY ITEMS'");
             while (resultSet.next()) {
 
                 String id = resultSet.getString("item_id");
                 String name = resultSet.getString("name");
                 String category = resultSet.getString("category");
                 itemCategory=category;
-                int prize = Integer.parseInt(resultSet.getString("prize"));
+                double prize = Double.parseDouble(resultSet.getString("prize"));
                 Size size1 = lk.ijse.dep10.app.util.Size.valueOf(resultSet.getString("size"));
 
                 Item foodItem = new Item(id, category, name, size1, prize);

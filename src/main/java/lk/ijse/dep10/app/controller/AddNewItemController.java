@@ -93,6 +93,7 @@ public class AddNewItemController {
     public void initialize() {
         btnNewCashier.fire();
         txtId.setEditable(false);
+
         tblItem.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblItem.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("category"));
         tblItem.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("itemName"));
@@ -106,6 +107,7 @@ public class AddNewItemController {
         items.add("BAKERY ITEMS");
         items.add("DRINKS");
         items.add("DESSERTS");
+        cmbCategory.setValue("Select Category");
         loadData();
 
         cmbCategory.getSelectionModel().selectedItemProperty().addListener(((observableValue, previous, current) -> {
@@ -116,9 +118,17 @@ public class AddNewItemController {
             switch (current) {
                 case "RICE":
                     generatedID = "R-";
+                    if (!isTableSelected)  {
+                        rbtLarge.setDisable(false);
+                        rbtSmall.setDisable(false);
+                    }
                     break;
                 case "KOTTU":
                     generatedID = "K-";
+                    if (!isTableSelected)  {
+                        rbtLarge.setDisable(false);
+                        rbtSmall.setDisable(false);
+                    }
                     break;
                 case "BAKERY ITEMS":
                     generatedID = "B-";
@@ -191,7 +201,7 @@ public class AddNewItemController {
                     String id = resultSet.getString("item_id");
                     String name = resultSet.getString("name");
                     String category = resultSet.getString("category");
-                    int prize = Integer.parseInt(resultSet.getString("prize"));
+                    double prize = Double.parseDouble(resultSet.getString("prize"));
                     Size size = Size.valueOf(resultSet.getString("size"));
                     Item foodItem = new Item(id, category, name, size, prize);
                     tblItem.getItems().add(foodItem);
@@ -216,12 +226,13 @@ public class AddNewItemController {
                 generatedID = id.substring(0, 2);
                 String name = resultSet.getString("name");
                 String category = resultSet.getString("category");
-                int prize = Integer.parseInt(resultSet.getString("prize"));
+                double prize = Double.parseDouble(resultSet.getString("prize"));
                 Size size = Size.valueOf(resultSet.getString("size"));
 
                 Item foodItem = new Item(id, category, name, size, prize);
                 tblItem.getItems().add(foodItem);
             }
+            if (arrayList.isEmpty()) return;
             idDigit = Collections.max(arrayList)+1;
             generatedID = String.format(generatedID + "%03d",idDigit);
             System.out.println(generatedID+" load");
@@ -257,7 +268,6 @@ public class AddNewItemController {
 
     @FXML
     void btnNewCashierOnAction(ActionEvent event) {
-        txtId.clear();
         txtName.clear();
         txtPrize.clear();
         tglSize.selectToggle(null);
@@ -266,6 +276,8 @@ public class AddNewItemController {
         tblItem.getSelectionModel().clearSelection();
         txtName.requestFocus();
         cmbCategory.getSelectionModel().clearSelection();
+        cmbCategory.setValue("Select Category");
+        txtId.clear();
 
     }
 
@@ -274,15 +286,15 @@ public class AddNewItemController {
         if (!isValid()) return;
         try {
             Item item = new Item(txtId.getText().toUpperCase(), cmbCategory.getSelectionModel().getSelectedItem(),
-                    txtName.getText().toUpperCase(), tglSize.getSelectedToggle() == rbtSmall ? Size.SMALL : Size.LARGE, Integer.parseInt(txtPrize.getText()));
+                    txtName.getText().toUpperCase().strip(), tglSize.getSelectedToggle() == rbtSmall ? Size.SMALL : Size.LARGE, Double.parseDouble(txtPrize.getText()));
 
             Connection connection = DBConnection.getInstance().getConnection();
             Statement stm = connection.createStatement();
             Item selectedItem = tblItem.getSelectionModel().getSelectedItem();
 
             Statement statement2 = connection.createStatement();
-            String sql2 = "SELECT * FROM Item WHERE name='%s' AND size='%s'";
-            sql2=String.format(sql2,item.getItemName(),item.getSize());
+            String sql2 = "SELECT * FROM Item WHERE name='%s' AND size='%s' AND category='%s'AND prize='%s'";
+            sql2=String.format(sql2,item.getItemName(),item.getSize(),cmbCategory.getSelectionModel().getSelectedItem(),Double.parseDouble(txtPrize.getText()));
             ResultSet resultSet = statement2.executeQuery(sql2);
 
             if (resultSet.next()) {
@@ -328,7 +340,7 @@ public class AddNewItemController {
         String prize = txtPrize.getText();
         Toggle toggleSize = tglSize.getSelectedToggle();
 
-        if (!prize.matches("[0-9]{2,}")) {
+        if (!prize.matches("[0-9.]{2,}")) {
             isDataValid = false;
             txtPrize.requestFocus();
             txtPrize.selectAll();
@@ -341,7 +353,7 @@ public class AddNewItemController {
             rbtLarge.getStyleClass().add("invalid");
         }
 
-        if (name.isEmpty() || !name.matches("[A-z ]+")) {
+        if (name.isEmpty() || !name.matches("[A-z0-9 ]+")) {
             isDataValid = false;
             txtName.requestFocus();
             txtName.selectAll();

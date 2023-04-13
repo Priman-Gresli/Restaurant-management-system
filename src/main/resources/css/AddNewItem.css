@@ -1,21 +1,6 @@
 
-#btnSave,#btnDelete,#btnNewCashier{
-    -fx-background-color:
-            #090a0c,
-            linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
-            linear-gradient(#20262b, #191d22),
-            radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
-    -fx-background-radius: 5,4,3,5;
-    -fx-background-insets: 0,1,2,0;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-    -fx-font-family: "Arial";
-    -fx-text-fill: linear-gradient(white, #d0d0d0);
-    -fx-font-size: 12px;
-    -fx-font-weight: bold;
-    -fx-padding: 10 20 10 20;
-}
-#btnSave:hover,#btnDelete:hover,#btnNewCashier:hover {
+
+#btnNewCashier:hover {
     -fx-background-color:
             rgb(29, 32, 37),
             linear-gradient(#566069 0%, #33383d 20%, #191d22 100%),
@@ -24,7 +9,7 @@
     -fx-cursor: hand;
 
 }
-#btnSave,#btnDelete,#btnNewCashier{
+#btnNewCashier{
     -fx-background-color:  #040f15,
     linear-gradient(#242e37 0%, #131b23 20%, #141e23 100%),
     linear-gradient(#1d2831, #0f161f),
@@ -38,21 +23,56 @@
     -fx-padding: 10 20 10 20;
 }
 
-/*.toggleSelected{*/
-/*    -fx-background-color: #090a0c,*/
-/*    linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),*/
-/*    linear-gradient(#20262b, #191d22),*/
-/*    radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));*/
-/*    -fx-background-radius: 5,4,3,5;*/
-/*    -fx-background-insets: 0,1,2,0;*/
-/*    -fx-text-fill: white;*/
-/*    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );*/
-/*    -fx-font-family: "Arial";*/
-/*    -fx-text-fill: linear-gradient(white, #d0d0d0);*/
-/*    -fx-font-size: 15px;*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-padding: 10 20 10 20;*/
-/*}*/
+#btnSave{
+    -fx-background-color:
+            #0f0f6b,
+            linear-gradient(#427491 0%, #114070 20%, #1b1865 100%),
+            linear-gradient(#1b376b, #193964),
+            radial-gradient(center 50% 0%, radius 100%, rgba(65, 91, 126, 0.9), rgba(255, 255, 255, 0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#btnSave:hover {
+    -fx-background-color: rgb(29, 32, 37),
+    #6565cc,
+    linear-gradient(#69b0d9 0%, #5b87b6 20%, #608ac9 100%),
+    linear-gradient(#5b79b4, #5282c4),
+    radial-gradient(center 50% 0%, radius 100%, rgba(103, 140, 180, 0.9), rgba(147, 151, 194, 0));
+    -fx-cursor: hand;
+}
+#btnDelete{
+    -fx-background-color:
+            #865555,
+            linear-gradient(#a25c5c 0%, #8a4564 20%, #5e2d5c 100%),
+            linear-gradient(#5d2b40, #542142),
+            radial-gradient(center 50% 0%, radius 100%, rgba(145, 91, 112, 0.9), rgba(9, 0, 2, 0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#btnDelete:hover {
+    -fx-background-color:
+            #a88282,
+            linear-gradient(#b99292 0%, #b2748f 20%, #b06bad 100%),
+            linear-gradient(#b7698b, #ab6190),
+            radial-gradient(center 50% 0%, radius 100%, rgba(215, 140, 170, 0.9), rgba(9, 0, 2, 0));
+    -fx-cursor: hand;
+
+}
+
 #imgClose:hover{
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
     -fx-scale-x: 1.1;
@@ -152,13 +172,13 @@
 /*    -fx-font-weight: bold;*/
 /*    -fx-padding: 10 20 10 20;*/
 /*}*/
-/*.invalid {      !* <- CSS Class *!*/
+.invalid {      /* <- CSS Class */
 
-/*    !*-fx-border-color: red;*!*/
-/*    !*-fx-border-radius: 5px;*!*/
-/*    -fx-text-box-border: red ;*/
-/*    !*-fx-focus-color: red ;*!*/
-/*    !*-fx-border-width: 5;*!*/
-/*    -fx-border-color: red;*/
-/*    -fx-border-width: 2;*/
-/*}*/
+    /*-fx-border-color: red;*/
+    /*-fx-border-radius: 5px;*/
+    -fx-text-box-border: red ;
+    /*-fx-focus-color: red ;*/
+    /*-fx-border-width: 5;*/
+    -fx-border-color: red;
+    -fx-border-width: 2;
+}

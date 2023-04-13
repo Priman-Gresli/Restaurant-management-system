@@ -61,7 +61,7 @@ public class CategoryRiceController extends OwnerSceneController{
                 String name = resultSet.getString("name");
                 String category = resultSet.getString("category");
                 itemCategory=category;
-                int prize = Integer.parseInt(resultSet.getString("prize"));
+                double prize = Double.parseDouble(resultSet.getString("prize"));
                 Size size = lk.ijse.dep10.app.util.Size.valueOf(resultSet.getString("size"));
 
                 Item foodItem = new Item(id, category, name, size, prize);
@@ -75,6 +75,7 @@ public class CategoryRiceController extends OwnerSceneController{
                         tglLarge.setDisable(false);
                         tglSmall.setDisable(false);
                         itemName=name;
+                        System.out.println(name);
                     });
                     FlowPlane1.getChildren().add(button);
                 }
@@ -88,6 +89,9 @@ public class CategoryRiceController extends OwnerSceneController{
     }
     @FXML
     void tglLargeOnAction(ActionEvent event) {
+        for (Item item : itemsArrayList) {
+            System.out.println(item.getItemName()+" : "+item.getCategory()+" : "+item.getSize());
+        }
         size= lk.ijse.dep10.app.util.Size.LARGE;
         List<Item> filteredItems = itemsArrayList.stream()
                 .filter(itemsArrayList -> itemsArrayList.getSize()== lk.ijse.dep10.app.util.Size.LARGE).filter(itemsArrayList -> itemsArrayList.getItemName().equals(itemName))

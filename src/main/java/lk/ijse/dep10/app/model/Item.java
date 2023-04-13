@@ -9,7 +9,7 @@ public class Item implements Serializable {
     private String category;
     private String itemName;
     private Size size;
-    private int prize;
+    private double prize;
 
     public String getId() {
         return id;
@@ -43,7 +43,7 @@ public class Item implements Serializable {
         this.size = size;
     }
 
-    public int getPrize() {
+    public double getPrize() {
         return prize;
     }
 
@@ -54,7 +54,7 @@ public class Item implements Serializable {
     public Item() {
     }
 
-    public Item(String id, String category, String itemName, Size size, int prize) {
+    public Item(String id, String category, String itemName, Size size, double prize) {
         this.id = id;
         this.category = category;
         this.itemName = itemName;

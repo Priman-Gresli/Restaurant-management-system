@@ -1,5 +1,6 @@
 package lk.ijse.dep10.app.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,12 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaView;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import lk.ijse.dep10.app.db.DBConnection;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -49,7 +53,7 @@ public class MainLoggingController extends LoggedUserDetails implements Initiali
     private Label lblUsername;
 
     private String name;
-    private int id;
+    private String id;
     private String status;
 
     @FXML
@@ -61,20 +65,20 @@ public class MainLoggingController extends LoggedUserDetails implements Initiali
 
     public void initialize(URL url , ResourceBundle resourceBundle) {
 
-//        txtPassword.textProperty().addListener((observableValue, previous, current) -> {
-//            if (txtPassword.getText().isEmpty()) {
-//                txtPassword.requestFocus();
-//                txtPassword.getStyleClass().add("invalid");
-////                flag=false;
-//            }
-//        });
+        txtPassword.textProperty().addListener((observableValue, previous, current) -> {
+            if (txtPassword.getText().isEmpty()) {
+                txtPassword.requestFocus();
+                txtPassword.getStyleClass().add("invalid");
+//                flag=false;
+            }
+        });
 
-//        btnLogin.setOnKeyReleased(event -> {
-//            if (event.getCode() == KeyCode.ENTER) {
-//               btnLogin.fire();
-//                System.out.println("Enter key pressed!");
-//            }
-//        });
+        btnLogin.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+               btnLogin.fire();
+                System.out.println("Enter key pressed!");
+            }
+        });
             // video eka
 //        File file = new File("data/video.mp4");
 //        Media media = new Media(file.toURI().toString());
@@ -83,7 +87,7 @@ public class MainLoggingController extends LoggedUserDetails implements Initiali
 //        midPlayer.setMediaPlayer(mediaPlayer);
 //        Platform.runLater(()->{
 //            try {
-//                Thread.sleep(5000);
+//                Thread.sleep(8000);
 //                mediaPlayer.play();
 //                mediaPlayer.setOnEndOfMedia(() -> {
 //                    System.out.println("Media playback has finished");
@@ -105,21 +109,14 @@ public class MainLoggingController extends LoggedUserDetails implements Initiali
                 txtPassword.getScene().getWindow().hide();
                 loggedName=name;
                 loggedId=id;
-                if (status.equals("OWNER")) {
+                if (status.equals("OWNER")||status.equals("CASHIER")) {
                     stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/OwnerScene.fxml")).load()));
                     stage.setMaximized(true);
                     stage.centerOnScreen();
                     stage.setTitle("OWNER MODE");
                     stage.show();
                     System.out.println("admin");
-                }else if (status.equals("CASHIER")){
-                    stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/CashierScene.fxml")).load()));
-                    stage.setMaximized(true);
-                    stage.centerOnScreen();
-                    stage.setTitle("CASHIER MODE");
-                    stage.show();
-                    System.out.println("cashier");
-                }else new Alert(Alert.AlertType.WARNING,"Invalid Login!").showAndWait();
+                } else new Alert(Alert.AlertType.WARNING,"Invalid Login!").showAndWait();
 
             }
         }
@@ -135,10 +132,8 @@ public class MainLoggingController extends LoggedUserDetails implements Initiali
             if (resultSet.next()) {
                 name = resultSet.getString("full_name");
                 status = resultSet.getString("status");
-                id = resultSet.getInt("staff_id");
-                System.out.println(name);
-                System.out.println(status);
-                System.out.println(id);
+                id = resultSet.getString("staff_id");
+
                 return true;
             }else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Login!").showAndWait();

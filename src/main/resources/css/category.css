@@ -1,0 +1,27 @@
+
+.button,#tglSmall,#tglLarge{
+    -fx-background-color:
+            #555586,
+            linear-gradient(#5c8aa2 0%, #45668a 20%, #2d405e 100%),
+            linear-gradient(#2b465d, #213754),
+            radial-gradient(center 50% 0%, radius 100%, rgba(91, 117, 145, 0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+.button:hover,#tglSmall:hover,#tglLarge:hover {
+    -fx-background-color:
+            rgb(5, 51, 129),
+            linear-gradient(#566069 0%, #33383d 20%, #053773 100%),
+            linear-gradient(#3e4449, #373b40),
+            radial-gradient(center 50% 0%, radius 100%, rgba(223, 232, 239, 0.9), rgb(4, 54, 89));
+    -fx-cursor: hand;
+
+}
+

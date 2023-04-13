@@ -33,7 +33,7 @@
     -fx-background-color: rgba(0, 149, 255, 0.85);
 }
 
-.invalid :focused{      /* <- CSS Class */
+.invalid{      /* <- CSS Class */
     /*-fx-border-width: 1px;*/
     /*-fx-border-color: red;*/
     /*-fx-border-radius: 5px;*/
@@ -44,3 +44,44 @@
 .text-field:focused {
     -fx-border-color: #0080ff;
 }
+.label,#rbtFemale,#rbtMale{
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+#lblNewAdmin{
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+#btnConfirm:hover,#btnBrowse:hover,#btnClear:hover {
+    -fx-background-color:
+            rgb(20, 29, 42),
+            linear-gradient(#60788c 0%, #232f3b 20%, #131c26 100%),
+            linear-gradient(#607588, #2c3541),
+            radial-gradient(center 50% 0%, radius 100%, rgba(143, 175, 197, 0.9), rgba(255,255,255,0));
+    -fx-cursor: hand;
+
+}
+#btnConfirm,#btnBrowse,#btnClear{
+    -fx-background-color:  #0a222f,
+    linear-gradient(#627588 0%, #253444 20%, #283c46 100%),
+    linear-gradient(#344859, #1b2a3d),
+    radial-gradient(center 50% 0%, radius 100%, rgba(90, 112, 129, 0.9), rgba(255,255,255,0));
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+#btnConfirm,#btnBrowse,#btnClear{
+     -fx-font-size: 19px;
+ }
