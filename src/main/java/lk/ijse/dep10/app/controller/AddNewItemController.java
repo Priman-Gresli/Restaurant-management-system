@@ -249,6 +249,7 @@ public class AddNewItemController {
         deleteFromDatabase();
         tblItem.getItems().remove(tblItem.getSelectionModel().getSelectedItem());
         tblItem.getSelectionModel().clearSelection();
+        btnNewCashier.fire();
     }
 
     private void deleteFromDatabase() {

@@ -103,7 +103,7 @@
     -fx-font-size: 25px;
     -fx-font-weight: bold;
 }
-#btn1:hover,#btn2:hover,#btn3:hover,#btn4:hover,#btn5:hover,#btn6:hover,#btn7:hover,#btn8:hover,#btn9:hover,#btnDot:hover,#btnEnter:hover,#btnExit:hover,#btn0:hover,#btnSkip:hover,#btnPlus:hover,#btnRemove:hover,#btnOpenCashBox:hover,#btnBill:hover  {
+#btn1:hover,#btn2:hover,#btn3:hover,#btn4:hover,#btn5:hover,#btn6:hover,#btn7:hover,#btn8:hover,#btn9:hover,#btnDot:hover,#btnEnter:hover,#btnPrint:hover,#btn0:hover,#btnSkip:hover,#btnPlus:hover,#btnRemove:hover,#btnOpenCashBox:hover,#btnBill:hover  {
     -fx-background-color:
             rgb(20, 29, 42),
             linear-gradient(#60788c 0%, #232f3b 20%, #131c26 100%),
@@ -112,7 +112,7 @@
     -fx-cursor: hand;
 
 }
-#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9,#btnDot,#btnEnter,#btnExit,#btn0,#btnSkip,#btnPlus,#btnRemove,#btnOpenCashBox,#btnBill {
+#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9,#btnDot,#btnEnter,#btnPrint,#btn0,#btnSkip,#btnPlus,#btnRemove,#btnOpenCashBox,#btnBill {
     -fx-background-color:  #0a222f,
     linear-gradient(#627588 0%, #253444 20%, #283c46 100%),
     linear-gradient(#344859, #1b2a3d),

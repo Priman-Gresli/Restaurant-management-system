@@ -323,7 +323,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="btnExit" layoutX="229.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="190.0" prefWidth="224.0" text="EXIT" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <Button fx:id="btnPrint" layoutX="229.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnPrintOnAction" prefHeight="190.0" prefWidth="224.0" text="PRINT BILL" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                        <font>
                                           <Font size="24.0" />
                                        </font>

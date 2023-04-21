@@ -45,7 +45,7 @@ public class AppInitializer extends Application {
                 System.out.println(resultSet.next());
                 primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/MainLogging.fxml")).load()));
 //                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/ShopDataScene.fxml")).load()));
-//                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddCashier.fxml")).load()));
+//                primaryStage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/OwnerScene.fxml")).load()));
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Main Logging");
                 primaryStage.setResizable(false);

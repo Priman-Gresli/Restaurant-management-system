@@ -82,7 +82,7 @@
     -fx-cursor: hand;
 
 }
-#lblAddress,#lblContact,#lblGender,#lblDesignation,#rbtCashier,#rbtOwner,#rbtFemale,#rbtMale,#lblPassword,#lblRePassword,#lblUsername#lblPassword,#lblRePassword,#lblUsername{
+#lblName,#lblAddress,#lblContact,#lblGender,#lblDesignation,#rbtCashier,#rbtOwner,#rbtFemale,#rbtMale,#lblPassword,#lblRePassword,#lblUsername#lblPassword,#lblRePassword,#lblUsername{
     -fx-text-fill: white;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-font-family: "Arial";

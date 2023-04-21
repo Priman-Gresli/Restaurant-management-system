@@ -28,6 +28,10 @@ import lk.ijse.dep10.app.model.Item;
 import lk.ijse.dep10.app.model.OrderedBill;
 import lk.ijse.dep10.app.model.StaffMember;
 import lk.ijse.dep10.app.util.Size;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -37,6 +41,7 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,6 +50,7 @@ public class OwnerSceneController extends LoggedUserDetails{
     public ToggleGroup Mode;
     public Label lblTotalBill;
     public Label lblTotalPrize;
+    public Button btnPrint;
     @FXML
     private Button btn0;
 
@@ -183,14 +189,19 @@ public class OwnerSceneController extends LoggedUserDetails{
     public static Size size;
     private double total;
     String date;
+    String date1;
     String time;
+    String time1;
     int qty;
     @FXML
     private TableView<OrderedBill> tblBill;
     List<OrderedBill> itemArrayList = new ArrayList<>();
     ArrayList<OrderedBill> itemArrayList2 = new ArrayList<>();
+    private JasperReport jasperReport;
 
-    public void initialize() {
+    public void initialize() throws JRException {
+        JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/report/bill.jrxml"));
+        jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
         if (loggedId.substring(0,1).equals("C")){
             btnBusinessSummary.setDisable(true);
@@ -230,6 +241,17 @@ public class OwnerSceneController extends LoggedUserDetails{
 
 
     }
+    public void btnPrintOnAction(ActionEvent actionEvent) throws JRException {
+        HashMap<String, Object> reportParams = new HashMap<>();
+        reportParams.put("Date",date1);
+        reportParams.put("Time",time1);
+        Connection dataSource = DBConnection.getInstance().getConnection();
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParams, dataSource);
+        JasperViewer.viewReport(jasperPrint,false);
+
+
+    }
     @FXML
     void btnEnterOnAction(ActionEvent event) {
         if (itemName==null || itemPrize==0.0 || quantity.equals("")|| quantity.equals("0")) return;
@@ -263,6 +285,8 @@ public class OwnerSceneController extends LoggedUserDetails{
     void btnBillOnAction(ActionEvent event) {
         try {
             Bill billedItem = new Bill(itemArrayList2,total, date, time, loggedName, loggedId+"");
+            date1=date;
+            time1=time;
             Connection connection = DBConnection.getInstance().getConnection();
             Statement statement = connection.createStatement();
             connection.setAutoCommit(false);
@@ -301,6 +325,7 @@ public class OwnerSceneController extends LoggedUserDetails{
             new Alert(Alert.AlertType.ERROR, "Failed to save the Item, try again!").showAndWait();
         }
     }
+
     @FXML
     void btn0OnAction(ActionEvent event) {
         quantity+="0";
@@ -351,17 +376,9 @@ public class OwnerSceneController extends LoggedUserDetails{
         quantity+="9";
 
     }
-
     @FXML
     void btnDotOnAction(ActionEvent event) {
         quantity+=".";
-    }
-
-
-
-    @FXML
-    void btnExitOnAction(ActionEvent event) {
-
     }
 
     @FXML
@@ -396,7 +413,6 @@ public class OwnerSceneController extends LoggedUserDetails{
         itemArrayList.clear();
         itemArrayList2.clear();
     }
-
     @FXML
     void btnBusinessSummaryOnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -411,6 +427,7 @@ public class OwnerSceneController extends LoggedUserDetails{
         btnCashierMode.setSelected(true);
 
     }
+
     @FXML
     void btnAddNewCashierOnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -498,7 +515,6 @@ public class OwnerSceneController extends LoggedUserDetails{
     public void imgLogOutOnMouseReleased(MouseEvent event) {
         logout();
     }
-
     public void imgLogOutOnTouchReleased(TouchEvent touchEvent) {
         logout();
     }
@@ -517,6 +533,7 @@ public class OwnerSceneController extends LoggedUserDetails{
         stage.show();
         stage.centerOnScreen();
     }
+
     private void toKottuCategory()  {
         quantity="";
         Stage stage = new Stage();
@@ -567,7 +584,6 @@ public class OwnerSceneController extends LoggedUserDetails{
         stage.show();
         stage.centerOnScreen();
     }
-
     private void toDrinksCategory()  {
         quantity="";
         Stage stage = new Stage();
@@ -583,6 +599,7 @@ public class OwnerSceneController extends LoggedUserDetails{
         stage.show();
         stage.centerOnScreen();
     }
+
     private void logout()  {
         Stage stage1 =(Stage) btnAddNewCashier.getScene().getWindow();
         stage1.close();

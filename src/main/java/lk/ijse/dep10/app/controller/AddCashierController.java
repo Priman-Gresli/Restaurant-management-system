@@ -283,6 +283,7 @@ public class AddCashierController {
         deleteFromDatabase();
         tblMember.getItems().remove(tblMember.getSelectionModel().getSelectedItem());
         tblMember.getSelectionModel().clearSelection();
+        btnNewCashier.fire();
     }
 
     private void deleteFromDatabase() {
@@ -314,6 +315,10 @@ public class AddCashierController {
         txtUsername.clear();
         tglGender.selectToggle(null);
         tglDesignation.selectToggle(null);
+        rbtFemale.setDisable(false);
+        rbtMale.setDisable(false);
+        rbtCashier.setDisable(false);
+        rbtOwner.setDisable(false);
         tblMember.getSelectionModel().clearSelection();
         txtName.requestFocus();
         Image image = new Image("images/background/AddNewMember/No-Image.jpg");
