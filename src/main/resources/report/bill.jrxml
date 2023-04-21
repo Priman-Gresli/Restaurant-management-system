@@ -58,7 +58,7 @@ WHERE  dep10_restaurant.`BillItems`.id  = (SELECT MAX( dep10_restaurant.`Bill`.b
 			</staticText>
 			<image>
 				<reportElement x="36" y="0" width="57" height="54" uuid="4f91ebc0-8ceb-4198-9e17-e86da8018649"/>
-				<imageExpression><![CDATA["/image/logo.png"]]></imageExpression>
+				<imageExpression><![CDATA["image/logo.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

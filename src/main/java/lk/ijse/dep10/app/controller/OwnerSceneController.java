@@ -192,6 +192,7 @@ public class OwnerSceneController extends LoggedUserDetails{
     String date1;
     String time;
     String time1;
+    double reportTotal;
     int qty;
     @FXML
     private TableView<OrderedBill> tblBill;
@@ -245,6 +246,7 @@ public class OwnerSceneController extends LoggedUserDetails{
         HashMap<String, Object> reportParams = new HashMap<>();
         reportParams.put("Date",date1);
         reportParams.put("Time",time1);
+        reportParams.put("Total-Bill",reportTotal);
         Connection dataSource = DBConnection.getInstance().getConnection();
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParams, dataSource);
@@ -274,7 +276,7 @@ public class OwnerSceneController extends LoggedUserDetails{
         itemArrayList.add(orderedBill);
         itemArrayList2.add(orderedBill);
         lblTotalPrize.setText(total+"");
-
+        reportTotal=total;
         itemName=null;
         itemCategory=null;
         itemPrize=0.0;
