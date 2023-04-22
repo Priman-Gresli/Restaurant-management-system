@@ -33,9 +33,10 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="575.0" minHeight="10.0" prefHeight="427.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="435.0" minHeight="10.0" prefHeight="435.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="575.0" minHeight="10.0" prefHeight="448.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="435.0" minHeight="10.0" prefHeight="413.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <HBox alignment="CENTER" prefHeight="0.0" prefWidth="960.0">
@@ -50,7 +51,7 @@
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </HBox>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
                         <BarChart fx:id="chtBarChart" animated="false" barGap="0.0" layoutX="6.0" layoutY="44.0" prefHeight="471.0" prefWidth="1098.0" style="-fx-background-color: white;" title="SOLD QTY" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <xAxis>
@@ -67,7 +68,7 @@
                           </yAxis>
                         </BarChart>
                      </children></AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                      <children>
                         <LineChart fx:id="chtLineChart" animated="false" layoutX="13.0" layoutY="10.0" prefHeight="435.0" prefWidth="1098.0" style="-fx-background-color: white;" title="INCOME" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <xAxis>
@@ -83,6 +84,20 @@
                                  </tickLabelFont></NumberAxis>
                           </yAxis>
                         </LineChart>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="108.0" layoutY="17.0" text="TODAY INCOME:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTodayTotal" layoutX="238.0" layoutY="17.0" text="0.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

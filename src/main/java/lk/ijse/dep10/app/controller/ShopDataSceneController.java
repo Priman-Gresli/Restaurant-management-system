@@ -41,6 +41,7 @@ public class ShopDataSceneController {
     public LineChart chtLineChart;
     public Label lblTimePeriod;
     public BarChart chtBarChart;
+    public Label lblTodayTotal;
     ArrayList<OrderedBill> itemArrayList = new ArrayList<>();
     ArrayList<Bill> itemArrayALL = new ArrayList<>();
     List<Bill> itemListALL = new ArrayList<>();
@@ -50,27 +51,13 @@ public class ShopDataSceneController {
     List<Bill> itemListLastWeek = new ArrayList<>();
     ArrayList<Bill> itemArrayLastMonth = new ArrayList<>();
     List<Bill> itemListLastMonth = new ArrayList<>();
-    ArrayList<String> weekDays = new ArrayList<>();
-    ArrayList<String> monthWeeks = new ArrayList<>();
-    private String selectedPeriod;
     @FXML
     private BorderPane borderPaneBelow;
     @FXML
     private BorderPane borderPaneUpper;
 
     public void initialize() {
-        weekDays.add("Monday");
-        weekDays.add("Tuesday");
-        weekDays.add("Wednesday");
-        weekDays.add("Thursday");
-        weekDays.add("Friday");
-        weekDays.add("Saturday");
-        weekDays.add("Sunday");
 
-        monthWeeks.add("Week 1");
-        monthWeeks.add("Week 2");
-        monthWeeks.add("Week 3");
-        monthWeeks.add("Week 4");
 
         tblBills.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("date"));
         tblBills.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("time"));
@@ -106,12 +93,12 @@ public class ShopDataSceneController {
 
         }));
         String sqlAll = "SELECT * FROM Bill";
-//        String sqlThisWeek = "SELECT * FROM Bill WHERE YEAR(bill_date) = YEAR(NOW()) AND WEEK(bill_date) = WEEK(NOW())";
+        String sqlThisWeek = "SELECT * FROM Bill WHERE YEAR(bill_date) = YEAR(NOW()) AND WEEK(bill_date) = WEEK(NOW())";
         String sqlLastWeek = "SELECT * FROM Bill WHERE bill_date >= DATE_SUB(DATE(NOW()), INTERVAL 1 WEEK) AND bill_date < DATE(NOW())";
         String sqlLastMonth = "SELECT * FROM Bill WHERE bill_date >= DATE_SUB(DATE_FORMAT(NOW(), '%Y-%m-01'), INTERVAL 1 MONTH) AND bill_date < DATE_FORMAT(NOW(), '%Y-%m-01')";
 //        String sqlLastMonth = "SELECT * FROM Bill WHERE bill_date >= DATE_SUB(NOW(), INTERVAL 28 DAY)";
         loadData(itemArrayALL, itemListALL, sqlAll);
-//        loadData(itemArrayThisWeek, itemListThisWeek, sqlThisWeek);
+        loadData(itemArrayThisWeek, itemListThisWeek, sqlThisWeek);
         loadData(itemArrayLastWeek, itemListLastWeek, sqlLastWeek);
         loadData(itemArrayLastMonth, itemListLastMonth, sqlLastMonth);
         tblBills.getSelectionModel().selectedItemProperty().addListener((observableValue, previous, current) -> {
@@ -121,6 +108,18 @@ public class ShopDataSceneController {
             for (OrderedBill orderedBill : arrayList) {
                 tblItems.getItems().add(orderedBill);
             }
+        });
+        Comparator<String> dateComparator = Comparator.comparing(
+                key -> LocalDate.parse(key, DateTimeFormatter.ISO_LOCAL_DATE)
+        );
+        Map<String, Double> sellAmountByItem = itemArrayThisWeek.stream()
+                .collect(Collectors.groupingBy(Bill::getDate,
+                        Collectors.summingDouble(Bill::getTotalPrize)));
+        Map<String, Double> sortedMap0 = new TreeMap<>(dateComparator);
+        sortedMap0.putAll(sellAmountByItem);
+        sortedMap0.forEach((date, sellAmount) -> {
+            System.out.println("DATE " + date + " sold for a total of " + sellAmount);
+            lblTodayTotal.setText(sellAmount+"");
         });
     }
 
@@ -142,6 +141,7 @@ public class ShopDataSceneController {
         Comparator<String> dateComparator = Comparator.comparing(
                 key -> LocalDate.parse(key, DateTimeFormatter.ISO_LOCAL_DATE)
         );
+
         switch (period) {
             case "ALL":
                 for (Bill bill : itemArrayALL) {
