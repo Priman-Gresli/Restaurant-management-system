@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.*;
 
-public class AddOwnerController {
+public class AddOwnerController extends LoggedUserDetails {
 
 
     public Label lblName;
@@ -75,9 +75,6 @@ public class AddOwnerController {
         stage.sizeToScene();
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/OwnerScene.fxml")).load()));
         stage.setTitle("Shop Owner Mode");
-//        stage.sizeToScene();
-//        stage.setMaximized(true);
-        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
 
@@ -168,7 +165,8 @@ public class AddOwnerController {
             sql = String.format(sql, staffMember.getId(), staffMember.getName(), staffMember.getAddress(), staffMember.getContact(), txtAdminUsername.getText(),
                     txtAdminPassword.getText(), staffMember.getGender(), staffMember.getStatus());
             stm.executeUpdate(sql);
-
+            loggedName=staffMember.getName();
+            loggedId="A-001";
             PreparedStatement preparedStatement1 = connection.prepareStatement("INSERT INTO Picture (picture,id ) VALUES (?,?)");
             preparedStatement1.setBlob(1, picture1);
             preparedStatement1.setString(2, "A-001");

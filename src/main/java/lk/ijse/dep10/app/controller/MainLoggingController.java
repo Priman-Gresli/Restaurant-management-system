@@ -34,34 +34,15 @@ public class MainLoggingController extends LoggedUserDetails implements Initiali
     public Label lblLoginInvalid;
     public MediaView midPlayer;
 
-
     @FXML
     private TextField txtPassword;
 
     @FXML
     private TextField txtUsername;
-    @FXML
-    private AnchorPane anchorImage;
-
-    @FXML
-    private AnchorPane anchorVbox;
-
-    @FXML
-    private Label lblPassword;
-
-    @FXML
-    private Label lblUsername;
-
     private String name;
     private String id;
     private String status;
 
-    @FXML
-    private AnchorPane root;
-    private MediaPlayer mediaPlayer;
-
-    @FXML
-    private AnchorPane userSideMainAnchor;
 
     public void initialize(URL url , ResourceBundle resourceBundle) {
 

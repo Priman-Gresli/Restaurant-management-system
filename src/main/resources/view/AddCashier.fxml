@@ -52,7 +52,7 @@
                                                 <Font size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtName" maxHeight="40.0" minHeight="40.0" prefHeight="51.0" prefWidth="1291.0" />
+                                        <TextField fx:id="txtName" maxHeight="40.0" minHeight="40.0" prefHeight="51.0" prefWidth="1291.0" promptText="Kasun Sampath" />
                                     </children>
                                 </HBox>
                                 <HBox alignment="CENTER" prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
@@ -62,7 +62,7 @@
                                                 <Font size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtAddress" maxHeight="40.0" minHeight="40.0" prefHeight="51.0" prefWidth="1291.0" />
+                                        <TextField fx:id="txtAddress" maxHeight="40.0" minHeight="40.0" prefHeight="51.0" prefWidth="1291.0" promptText="N02 1st Street Kottawa" />
                                     </children>
                                 </HBox>
                                 <HBox alignment="CENTER" prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
@@ -72,7 +72,7 @@
                                                 <Font size="19.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtContact" maxHeight="40.0" minHeight="40.0" prefHeight="51.0" prefWidth="1291.0" />
+                                        <TextField fx:id="txtContact" maxHeight="40.0" minHeight="40.0" prefHeight="51.0" prefWidth="1291.0" promptText="XXX-XXXXXXX" />
                                     </children>
                                 </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="220.0" prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
@@ -92,7 +92,7 @@
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <PasswordField fx:id="txtPassword" maxHeight="40.0" prefWidth="1291.0" />
+                              <PasswordField fx:id="txtPassword" maxHeight="40.0" prefWidth="1291.0" promptText="Min 8 Characters atleast 1 number, Uppercase letter and Charactor" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0" prefHeight="51.0" prefWidth="1374.0" spacing="20.0">
