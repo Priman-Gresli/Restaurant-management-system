@@ -27,6 +27,6 @@ java AppInitializerWrapper
 
 
 
-Project Description
+Project Demo
 
 https://user-images.githubusercontent.com/115061520/235431069-158e6927-d8f3-419c-9eb7-f397ba839e2c.mp4
